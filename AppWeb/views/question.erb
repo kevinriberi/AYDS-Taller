@@ -1,0 +1,15 @@
+<h2>Pregunta</h2>
+<p><%= @question.content %></p>
+
+<h3>Respuestas</h3>
+<ul>
+  <% @options.each do |option| %>
+    <li><%= option.content %></li>
+  <% end %>
+</ul>
+
+<h3>Responder</h3>
+<form action="/questions/<%= @question.id %>/options" method="post">
+  <input type="text" name="option[content]">
+  <input type="submit" value="Responder">
+</form>

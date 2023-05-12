@@ -1,0 +1,15 @@
+<!-- topic.erb -->
+
+<h1><%= @topic.name %></h1>
+
+<h2>Preguntas</h2>
+
+<% if @questions.any? %>
+  <ul>
+    <% @questions.each do |question| %>
+      <li><%= link_to question.title, "/questions/#{question.id}" %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No hay preguntas relacionadas con este tema.</p>
+<% end %>

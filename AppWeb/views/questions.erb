@@ -1,0 +1,13 @@
+<% @topics.each do |topic| %>
+  <h2><%= topic.name %></h2>
+  <ul>
+    <% topic.questions.each do |question| %>
+      <li><%= question.content %></li>
+      <ul>
+        <% question.options.each do |option| %>
+          <li><%= option.content %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </ul>
+<% end %>

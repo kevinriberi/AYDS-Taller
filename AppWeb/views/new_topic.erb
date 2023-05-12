@@ -1,0 +1,22 @@
+<h1>Nuevo Tema</h1>
+
+<% if @topic.errors.any? %>
+  <div class="alert alert-danger">
+    <ul>
+      <% @topic.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<form action="/topics" method="post">
+  <div class="form-group">
+    <label for="topic_name">Nombre:</label>
+    <input type="text" class="form-control" id="topic_name" name="topic[name]" required>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Crear Tema</button>
+    <a href="/topics" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>

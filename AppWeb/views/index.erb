@@ -1,0 +1,15 @@
+<!-- index.erb -->
+<body>
+  <h1>Bienvenido a Prelud-Code!</h1>
+  
+  <form action="/login" method="POST">
+    <input type="email" name="email" placeholder="Correo electrónico" required/>
+    <input type="password" name="password" placeholder="Contraseña" required/>
+    <button>Iniciar sesión</button>
+  </form>
+
+  <a href="/register">Registrarse</a>
+  <form action="/guest" method="POST">
+    <button>Iniciar sesión como invitado</button>
+  </form>
+</body>

@@ -1,0 +1,12 @@
+  source 'https://rubygems.org'
+    gem 'sinatra-activerecord'
+    gem 'sqlite3'
+    gem 'rake'
+    gem 'logger'
+    gem 'bcrypt'
+    gem 'minitest', '5.18.0'
+
+   github 'sinatra/sinatra', branch: 'main' do
+    gem 'sinatra'
+    gem 'sinatra-contrib'
+  end
