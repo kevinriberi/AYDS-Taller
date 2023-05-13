@@ -4,7 +4,7 @@
     gem 'rake'
     gem 'logger'
     gem 'bcrypt'
-    gem 'minitest', '5.18.0'
+    gem 'minitest', '5.13.0'
 
    github 'sinatra/sinatra', branch: 'main' do
     gem 'sinatra'
