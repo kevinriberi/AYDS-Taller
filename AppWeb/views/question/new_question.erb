@@ -1,0 +1,25 @@
+<h1>Nueva Pregunta</h1>
+
+<form action="/preguntas" method="post">
+  <label for="pregunta">Pregunta:</label>
+  <input type="text" name="pregunta" id="pregunta">
+  
+  <label for="tema">Tema:</label>
+  <select name="tema" id="tema">
+    <% @topics.each do |topic| %>
+      <option value="<%= topic.id %>"><%= topic.name %></option>
+    <% end %>
+  </select>
+
+<label for="option1">Opción 1:</label>
+<input type="text" name="option1" id="option1">
+
+<label for="option2">Opción 2:</label>
+<input type="text" name="option2" id="option2">
+
+<label for="option3">Opción 3:</label>
+<input type="text" name="option3" id="option3">
+
+
+  <input type="submit" value="Guardar">
+</form>
