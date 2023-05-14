@@ -1,13 +1,17 @@
 <% @topics.each do |topic| %>
   <h2><%= topic.name %></h2>
-  <ul>
-    <% topic.questions.each do |question| %>
-      <li><%= question.content %></li>
+  <% current_level = nil %>
+  <% topic.questions.order(level: :desc).each do |question| %>
+    <% if current_level != question.level %>
+      <% current_level = question.level %>
+      <h3><%= question.level %></h3>
       <ul>
-        <% question.options.each do |option| %>
-          <li><%= option.content %></li>
-        <% end %>
+    <% end %>
+    <li><%= question.content %></li>
+    <% if topic.questions.last == question %>
+      </ul>
+    <% elsif topic.questions[topic.questions.index(question)+1].level != current_level %>
       </ul>
     <% end %>
-  </ul>
+  <% end %>
 <% end %>

@@ -19,7 +19,7 @@ class QuestionController < Sinatra::Application
     # Ruta para crear una nueva pregunta
     post '/questions' do
       # crea una nueva pregunta
-      question = Question.create(content: params[:question], topic_id: params[:topic])
+      question = Question.create(content: params[:question], topic_id: params[:topic], level: params[:level] )
     
       # crea las opciones de la pregunta
       option1 = Option.create(content: params[:option1], question_id: question.id)

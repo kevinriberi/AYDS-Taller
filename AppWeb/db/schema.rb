@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_13_230914) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_14_222710) do
+  create_table "answers", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "question_id", null: false
+    t.integer "option_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["option_id"], name: "index_answers_on_option_id"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
   create_table "options", force: :cascade do |t|
     t.text "content"
     t.integer "question_id"
@@ -25,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_230914) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "correct_option_id"
+    t.string "level"
     t.index ["topic_id"], name: "index_questions_on_topic_id"
   end
 
@@ -41,6 +53,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_13_230914) do
     t.string "password_digest"
   end
 
+  add_foreign_key "answers", "options"
+  add_foreign_key "answers", "questions"
+  add_foreign_key "answers", "users"
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "topics"
 end
