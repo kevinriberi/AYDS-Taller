@@ -1,5 +1,5 @@
 class TopicController < Sinatra::Application
-    get '/topics' do
+    get '/topics' do        
         @topics = Topic.all
         
         erb :'topic/topics'

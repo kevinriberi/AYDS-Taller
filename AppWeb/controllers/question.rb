@@ -9,7 +9,7 @@ class QuestionController < Sinatra::Application
     end
   
     # Ruta para mostrar el formulario de nueva pregunta
-    get '/question/new' do
+    get '/questions/new' do
       @question = Question.new
       @topics = Topic.all
 
@@ -18,65 +18,32 @@ class QuestionController < Sinatra::Application
   
     # Ruta para crear una nueva pregunta
     post '/questions' do
-      options = [
-        Option.new(content: params[:option1]),
-        Option.new(content: params[:option2]),
-        Option.new(content: params[:option3]),
-        Option.new(content: params[:option4])
-      ]
-  
-      @question = Question.new(params[:question])
-      @question.topic = Topic.find(params[:topic])
-      @question.options = options
-  
-      if @question.save
-        redirect '/questions'
-      else
-        @topics = Topic.all
-        erb :'question/new_question'
+      # crea una nueva pregunta
+      question = Question.create(content: params[:question], topic_id: params[:topic])
+    
+      # crea las opciones de la pregunta
+      option1 = Option.create(content: params[:option1], question_id: question.id)
+      option2 = Option.create(content: params[:option2], question_id: question.id)
+      option3 = Option.create(content: params[:option3], question_id: question.id)
+    
+      # actualiza la opción correcta de la pregunta
+      if params[:correct_option] == '1'
+        question.update(correct_option_id: option1.id)
+      elsif params[:correct_option] == '2'
+        question.update(correct_option_id: option2.id)
+      elsif params[:correct_option] == '3'
+        question.update(correct_option_id: option3.id)
       end
+    
+      # redirige a la página de todas las preguntas
+      redirect '/questions'
     end
   
     # Ruta para mostrar una pregunta individual
     get '/questions/:id' do
       @question = Question.find(params[:id])
+      @options = @question.options
+
       erb :'question/question'
     end
-  
-    # Ruta para mostrar el formulario de edición de una pregunta
-    get '/question/:id/edit' do
-      @question = Question.find(params[:id])
-      @topics = Topic.all
-      erb :'questions/question'
-    end
-  
-    # Ruta para actualizar una pregunta existente
-    put '/questions/:id' do
-      options = [
-        Option.new(content: params[:option1]),
-        Option.new(content: params[:option2]),
-        Option.new(content: params[:option3]),
-        Option.new(content: params[:option4])
-      ]
-  
-      @question = Question.find(params[:id])
-      @question.update(params[:question])
-      @question.topic = Topic.find(params[:topic])
-      @question.options = options
-  
-      if @question.save
-        redirect '/questions'
-      else
-        @topics = Topic.all
-        erb :'question/question'
-      end
-    end
-  
-    # Ruta para eliminar una pregunta existente
-    delete '/questions/:id' do
-      @question= Question.find(params[:id])
-      @question.destroy
-      redirect '/questions'
-    end
-  end
-  
+end

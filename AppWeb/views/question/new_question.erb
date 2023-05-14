@@ -1,11 +1,11 @@
 <h1>Nueva Pregunta</h1>
 
-<form action="/preguntas" method="post">
-  <label for="pregunta">Pregunta:</label>
-  <input type="text" name="pregunta" id="pregunta">
+<form action="/questions" method="post">
+  <label for="question">Pregunta:</label>
+  <input type="text" name="question" id="question">
   
-  <label for="tema">Tema:</label>
-  <select name="tema" id="tema">
+  <label for="topic">Tema:</label>
+  <select name="topic" id="topic">
     <% @topics.each do |topic| %>
       <option value="<%= topic.id %>"><%= topic.name %></option>
     <% end %>
@@ -20,6 +20,12 @@
 <label for="option3">Opción 3:</label>
 <input type="text" name="option3" id="option3">
 
+<label for="correct_option">Opción correcta:</label>
+<select name="correct_option" id="correct_option">
+  <option value="1">Opción 1</option>
+  <option value="2">Opción 2</option>
+  <option value="3">Opción 3</option>
+</select>
 
   <input type="submit" value="Guardar">
 </form>
