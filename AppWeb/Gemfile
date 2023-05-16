@@ -6,7 +6,9 @@
     gem 'bcrypt'
     gem 'minitest', '5.13.0'
 
+
    github 'sinatra/sinatra', branch: 'main' do
     gem 'sinatra'
     gem 'sinatra-contrib'
+
   end

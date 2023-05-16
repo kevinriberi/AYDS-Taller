@@ -1,3 +1,5 @@
+require_relative '../models/answer'
+
 class QuestionController < Sinatra::Application
 
     # Ruta para mostrar todas las preguntas
@@ -22,9 +24,9 @@ class QuestionController < Sinatra::Application
       question = Question.create(content: params[:question], topic_id: params[:topic], level: params[:level] )
     
       # crea las opciones de la pregunta
-      option1 = Option.create(content: params[:option1], question_id: question.id)
-      option2 = Option.create(content: params[:option2], question_id: question.id)
-      option3 = Option.create(content: params[:option3], question_id: question.id)
+      option1 = Option.create(content: params[:option1])
+      option2 = Option.create(content: params[:option2])
+      option3 = Option.create(content: params[:option3])
     
       # actualiza la opción correcta de la pregunta
       if params[:correct_option] == '1'
@@ -35,6 +37,9 @@ class QuestionController < Sinatra::Application
         question.update(correct_option_id: option3.id)
       end
     
+      option1.update(question_id: question.id)
+      option2.update(question_id: question.id)
+      option3.update(question_id: question.id)
       # redirige a la página de todas las preguntas
       redirect '/questions'
     end
@@ -46,4 +51,13 @@ class QuestionController < Sinatra::Application
 
       erb :'question/question'
     end
+
+    # Ruta para mostrar la pregunta individual y su formulario de respuesta
+    get '/questions/:id/answer' do
+      @question = Question.find(params[:id])
+      @answer = Answer.new(question: @question)
+
+      erb :'answer'
+    end
+
 end

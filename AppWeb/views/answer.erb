@@ -1,0 +1,13 @@
+<h1>Responder pregunta</h1>
+
+<form action="/submit" method="post">
+  <p><%= @question.content %></p>
+  <% @question.options.each do |option| %>
+    <div>
+      <input type="radio" name="option_id" value="<%= option.id %>">
+      <label><%= option.content %></label>
+    </div>
+  <% end %>
+  <input type="submit" value="Enviar respuesta">
+</form>
+

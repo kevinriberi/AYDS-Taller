@@ -8,8 +8,10 @@ require_relative 'models/user'
 require_relative 'models/question'
 require_relative 'models/option'
 require_relative 'models/topic'
-require_relative 'controllers/question'
-require_relative 'controllers/topic'
+require_relative 'models/answer'
+require_relative 'controllers/question_controller'
+require_relative 'controllers/topic_controller'
+require_relative 'controllers/answer_controller'
 
 require 'logger'
 
@@ -21,6 +23,7 @@ class App < Sinatra::Application
 
   use QuestionController
   use TopicController
+  use AnswerController
 
   configure :production, :development do
     enable :logging
