@@ -3,6 +3,7 @@ require 'rubygems'
 require 'sinatra'
 require 'sinatra/contrib'
 require 'sinatra/activerecord'
+require 'rack/session/cookie'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
 require_relative 'models/user'
 require_relative 'models/question'
@@ -20,6 +21,9 @@ set :database, {adapter: "sqlite3", database: "my-project.sqlite3"}
 class App < Sinatra::Application
 
   set :views, Proc.new { File.join(root, 'views') }
+  use Rack::Session::Cookie, key: 'prelude_code_session',
+                             expire_after: 60 * 60, #1hora
+                             secret: '5cQK8KJmpxqm3PBZQfpBgX3wb7U9x8R6NNLHU2cqTVcBSh9x7pdXa7eYrA9T4pbG'
 
   use QuestionController
   use TopicController
