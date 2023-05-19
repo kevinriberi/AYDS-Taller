@@ -8,7 +8,7 @@ class UserController < Sinatra::Application
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect '/'
+      redirect '/questions'
     else
       @error = "Usuario o contraseña incorrecta"
       erb :login
@@ -26,7 +26,7 @@ class UserController < Sinatra::Application
       u.password = 'guest_password'
     end
     session[:user_id] = guest.id
-    redirect '/'
+    redirect '/questions'
   end
 
   post '/logout' do
