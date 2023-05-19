@@ -41,7 +41,7 @@ class QuestionController < Sinatra::Application
       option2.update(question_id: question.id)
       option3.update(question_id: question.id)
       # redirige a la página de todas las preguntas
-      redirect '/questions'
+      redirect '/questions/new'
     end
   
     # Ruta para mostrar una pregunta individual

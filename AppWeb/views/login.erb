@@ -9,16 +9,18 @@
     <% if @error %>
       <p class="error"><%= @error %></p>
     <% end %>
-    <form action="/login" method="post">
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email" />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password" />
-      </div>
-      <button type="submit">Login</button>
+
+    <form action="/login" method="POST">
+    <input type="email" name="email" placeholder="Correo electrónico" required/>
+    <input type="password" name="password" placeholder="Contraseña" required/>
+    <button>Iniciar sesión</button>
+    </form>
+
+    <form action="/register" method="GET">
+      <button type="submit">Registrarse</button>
+    </form>
+    <form action="/guest" method="POST">
+      <button>Iniciar sesión como invitado</button>
     </form>
   </body>
 </html>
