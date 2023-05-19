@@ -1,13 +1,5 @@
 class UserController < Sinatra::Application
-
-  def logged_in?
-    session[:user_id] != nil
-  end
-  
-  def current_user
-    User.find(session[:user_id])
-  end
-      
+     
   get '/login' do
     erb :login
   end
