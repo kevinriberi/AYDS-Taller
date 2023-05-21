@@ -7,6 +7,6 @@ class AnswerController < Sinatra::Application
 
     # Crea una nueva instancia de Answer
     answer = Answer.create(user_id: user_id, question_id: question_id, option_id: option_id)
-
+    redirect '/questions'
   end
 end

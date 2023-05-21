@@ -55,7 +55,6 @@ class QuestionController < Sinatra::Application
     # Ruta para mostrar la pregunta individual y su formulario de respuesta
     get '/questions/:id/answer' do
       @question = Question.find(params[:id])
-      @answer = Answer.new(question: @question)
 
       erb :'answer'
     end
