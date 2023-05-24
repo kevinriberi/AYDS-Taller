@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_19_162930) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_24_211814) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -46,6 +46,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_162930) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "user_topic_infos", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "topic_id", null: false
+    t.string "level"
+    t.integer "correct_answers_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_user_topic_infos_on_topic_id"
+    t.index ["user_id"], name: "index_user_topic_infos_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
@@ -59,4 +70,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_19_162930) do
   add_foreign_key "answers", "users"
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "topics"
+  add_foreign_key "user_topic_infos", "topics"
+  add_foreign_key "user_topic_infos", "users"
 end
