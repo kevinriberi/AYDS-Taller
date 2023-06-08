@@ -5,7 +5,7 @@ class UserController < Sinatra::Application
   end
 
   post '/login' do
-    @user = User.find_by(email: params[:email])
+    @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect '/'
@@ -16,13 +16,13 @@ class UserController < Sinatra::Application
   end
 
   post '/users' do
-    @user = User.find_or_create_by(email: params[:email])
+    @user = User.find_or_create_by(username: params[:username])
 
     erb :user
   end
 
   post '/guest' do
-    guest = User.find_or_create_by(email: 'guest@example.com') do |u|
+    guest = User.find_or_create_by(email: 'guest') do |u|
       u.password = 'guest_password'
     end
     session[:user_id] = guest.id
@@ -40,7 +40,7 @@ class UserController < Sinatra::Application
   
   post '/register' do
     # Crea un nuevo usuario con los datos del formulario
-    user = User.new(email: params[:email], password: params[:password])
+    user = User.new(username: params[:username], password: params[:password])
   
     # Si el usuario se guarda correctamente, redirigir a la página de inicio de sesión
     if user.save

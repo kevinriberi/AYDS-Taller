@@ -13,7 +13,7 @@ h1 {
 form {
   margin-bottom: 10px;
 }
-input[type="email"],
+input[type="username"],
 input[type="password"] {
   padding: 10px;
   width: 250px;
