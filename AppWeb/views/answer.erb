@@ -1,14 +1,24 @@
-<h1>Responder pregunta</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Prelud-Code</title>
+  <link rel="stylesheet" href="/css/answer.css">
+</head>
+<h1><p><%= @question.content %></p></h1>
 
 <form action="/answers" method="post">
-  <p><%= @question.content %></p>
   <input type="hidden" name="question_id" value="<%= @question.id %>">
-  <% @question.options.each do |option| %>
-    <div>
-      <input type="radio" name="option_id" value="<%= option.id %>">
-      <label><%= option.content %></label>
-    </div>
-  <% end %>
-  <input type="submit" value="Enviar respuesta">
+  <div class="options-container">
+    <% @question.options.each do |option| %>
+      <div>
+        <input type="radio" name="option_id" value="<%= option.id %>">
+        <label><%= option.content %></label>
+      </div>
+    <% end %>
+  </div>
+  <div class="submit-container">
+    <input type="submit" value="Enviar respuesta">
+  </div>
 </form>
 
