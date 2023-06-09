@@ -1,33 +1,92 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  h1 {
-    color: #333;
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  form {
-    margin-bottom: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    background-color: #333;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #555;
-  }
-  
-  p {
-    margin-bottom: 20px;
-  }
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+  position: relative; /* Agregado para posicionar los elementos */
+}
+
+h1 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-bottom: 10px;
+}
+
+button,
+a.button {
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover,
+a.button:hover {
+  background-color: #555;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+/* Estilos para los botones de los temas */
+ul.topics-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.topics-list li {
+  margin: 5px;
+}
+
+.topic-button,
+a.topic-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.topic-button:hover,
+a.topic-button:hover {
+  background-color: #555;
+}
+
+/* Estilos para el botón de cerrar sesión */
+.logout-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+/* Estilos para el contenedor del nombre de usuario y puntos */
+.user-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column; /* Añadido para colocar los elementos en columna */
+  align-items: flex-start; /* Añadido para alinear los elementos a la izquierda */
+  color: #333;
+}
+
+.user-info span.username {
+  font-weight: bold;
+}
+
+.user-info span.points {
+  color: #555;
+  margin-top: 5px; /* Ajusta el margen superior para separar el nombre de usuario de los puntos */
+}

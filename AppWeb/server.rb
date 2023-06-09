@@ -58,6 +58,7 @@ class App < Sinatra::Application
   get '/' do
     if logged_in?
       @user = current_user
+      @topics = Topic.all
       erb :dashboard
     else
       erb :index
