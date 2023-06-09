@@ -1,7 +1,3 @@
-Answer.destroy_all
-Option.destroy_all
-Question.destroy_all
-
 # TOPIC: SECUENCIAL
 # NIVEL 1
 
