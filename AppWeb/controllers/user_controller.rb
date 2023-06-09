@@ -22,11 +22,11 @@ class UserController < Sinatra::Application
   end
 
   post '/guest' do
-    guest = User.find_or_create_by(email: 'guest') do |u|
+    guest = User.find_or_create_by(username: 'Invitad@') do |u|
       u.password = 'guest_password'
     end
     session[:user_id] = guest.id
-    redirect '/questions'
+    redirect '/'
   end
 
   post '/logout' do

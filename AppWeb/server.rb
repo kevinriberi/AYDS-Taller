@@ -6,16 +6,8 @@ require 'sinatra/activerecord'
 require 'rack/session/cookie'
 require 'logger'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
-require_relative 'models/user'
-require_relative 'models/question'
-require_relative 'models/option'
-require_relative 'models/topic'
-require_relative 'models/answer'
-#require_relative 'models/knowledge'
-require_relative 'controllers/question_controller'
-require_relative 'controllers/topic_controller'
-require_relative 'controllers/answer_controller'
-require_relative 'controllers/user_controller'
+require_relative 'models/init'
+require_relative 'controllers/init'
 
 set :database, {adapter: "sqlite3", database: "my-project.sqlite3"}
 

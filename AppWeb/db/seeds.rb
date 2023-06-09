@@ -1,6 +1,7 @@
 Answer.destroy_all
 Option.destroy_all
 Question.destroy_all
+Knowledge.destroy_all
 
 # TOPIC: SECUENCIAL
 # NIVEL 1
@@ -11,7 +12,7 @@ option1 = Option.create(content: "Un error en un programa.", question_id: questi
 option2 = Option.create(content: "Una secuencia de instrucciones para resolver un problema.", question_id: question.id)
 option3 = Option.create(content: "Una variable en un programa.", question_id: question.id)
 
-question.update(correct_option_id: option1.id)
+question.update(correct_option_id: option2.id)
 
 #Pregunta 2
 question = Question.create(content: "¿Qué es la asignación de variables en programación?", topic_id: 2, level: 1)
@@ -237,3 +238,13 @@ option3 = Option.create(content: "Funciones que solo pueden ser utilizadas por p
 
 question.update(correct_option_id: option2.id)
 
+# Obtengo todos los topics y los usuarios
+users = User.all
+topics = Topic.all
+
+# Para cada usuario, crear registros relacionados en otra tabla
+users.each do |user|
+    topics.each do |topic|
+        Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
+    end
+end
