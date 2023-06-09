@@ -10,11 +10,11 @@
     <span class="username"><%= @user.username %></span>
     <span class="points">Puntos: <%= @user.points %></span>
   </div>
-  <h1>Bienvenido, <%= @user.username %>!</h1>
+  <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">
     <button type="submit" class="button logout-button">Cerrar sesión</button>
   </form>
-  <p>¿Sobre qué tema quieres jugar?</p>
+  <p>¿Sobre qué tema quieres jugar hoy?</p>
   
   <!-- Generar enlaces a cada tema -->
   <ul class="topics-list">

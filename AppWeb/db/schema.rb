@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_08_212447) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_024446) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_08_212447) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "password_digest"
-    t.integer "points"
+    t.integer "points", default: 0
   end
 
   add_foreign_key "answers", "options"

@@ -1,24 +1,29 @@
-<!-- register.erb -->
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Registrarse</title>
+    <meta charset="UTF-8">
+    <title>Prelud-Code</title>
+    <link rel="stylesheet" href="/css/register.css">
   </head>
-  <body>
+<body>
     <h1>Registrarse</h1>
     <% if @error %>
       <p class="error"><%= @error %></p>
     <% end %>
     <form action="/register" method="post">
       <div>
-        <label>Email:</label>
-        <input type="email" name="email" />
+        <label>Username:</label>
+        <input type="username" name="username" />
       </div>
       <div>
-        <label>Password:</label>
+        <label>Contraseña:</label>
         <input type="password" name="password" />
       </div>
-      <button type="submit">Registrarse</button>
+      <div>
+        <label>Confirmar contraseña:</label>
+        <input type="password" name="confirm_password" />
+      </div>
+      <button type="submit">Confirmar</button>
     </form>
   </body>
 </html>
