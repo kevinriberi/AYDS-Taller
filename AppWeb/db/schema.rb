@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_09_024609) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_101720) do
   create_table "answers", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "question_id", null: false
@@ -20,6 +20,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_024609) do
     t.index ["option_id"], name: "index_answers_on_option_id"
     t.index ["question_id"], name: "index_answers_on_question_id"
     t.index ["user_id"], name: "index_answers_on_user_id"
+  end
+
+  create_table "knowledges", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "topic_id"
+    t.integer "level"
+    t.integer "correct_answers_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_knowledges_on_topic_id"
+    t.index ["user_id"], name: "index_knowledges_on_user_id"
   end
 
   create_table "options", force: :cascade do |t|
@@ -36,7 +47,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_024609) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "correct_option_id"
-    t.string "level"
+    t.integer "level"
     t.index ["topic_id"], name: "index_questions_on_topic_id"
   end
 
@@ -47,17 +58,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_024609) do
     t.integer "amount_questions_L1"
     t.integer "amount_questions_L2"
     t.integer "amount_questions_L3"
-  end
-
-  create_table "user_topic_infos", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "topic_id", null: false
-    t.string "level"
-    t.integer "correct_answers_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["topic_id"], name: "index_user_topic_infos_on_topic_id"
-    t.index ["user_id"], name: "index_user_topic_infos_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,8 +71,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_09_024609) do
   add_foreign_key "answers", "options"
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "users"
+  add_foreign_key "knowledges", "topics"
+  add_foreign_key "knowledges", "users"
   add_foreign_key "options", "questions"
   add_foreign_key "questions", "topics"
-  add_foreign_key "user_topic_infos", "topics"
-  add_foreign_key "user_topic_infos", "users"
 end

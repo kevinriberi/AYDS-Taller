@@ -1,8 +1,12 @@
+Answer.destroy_all
+Option.destroy_all
+Question.destroy_all
+
 # TOPIC: SECUENCIAL
 # NIVEL 1
 
 #Pregunta 1
-question = Question.create(content: "¿Cuál es la función de una variable en un programa?", topic_id: 2, level: 1)
+question = Question.create(content: "¿Qué es un algoritmo?", topic_id: 2, level: 1)
 option1 = Option.create(content: "Un error en un programa.", question_id: question.id)
 option2 = Option.create(content: "Una secuencia de instrucciones para resolver un problema.", question_id: question.id)
 option3 = Option.create(content: "Una variable en un programa.", question_id: question.id)

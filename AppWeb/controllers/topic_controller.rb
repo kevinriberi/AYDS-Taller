@@ -21,9 +21,13 @@ class TopicController < Sinatra::Application
       end
     
       get '/topics/:id' do
-        @topic = Topic.find(params[:id])
-        @questions = @topic.questions
-    
-        erb :'topic/topic'
+        # Obtener el ID del tema seleccionado
+        topic_id = params[:id]
+        
+        # Obtener la primera pregunta del tema seleccionado
+        first_question = Question.where(topic_id: topic_id).first
+        
+        # Redirigir al usuario a la página de la primera pregunta
+        redirect "/questions/#{first_question.id}/answer"
       end
 end
