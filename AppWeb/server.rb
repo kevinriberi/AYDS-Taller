@@ -5,6 +5,7 @@ require 'sinatra/contrib'
 require 'sinatra/activerecord'
 require 'rack/session/cookie'
 require 'logger'
+require 'rack-flash'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
 require_relative 'models/init'
 require_relative 'controllers/init'
@@ -18,6 +19,8 @@ class App < Sinatra::Application
                              expire_after: 60 * 60, #1 hora
                              secret: '5cQK8KJmpxqm3PBZQfpBgX3wb7U9x8R6NNLHU2cqTVcBSh9x7pdXa7eYrA9T4pbG'
 
+  use Rack::Flash
+ 
   use QuestionController
   use TopicController
   use AnswerController

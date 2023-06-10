@@ -64,6 +64,7 @@ a.topic-button:hover {
   background-color: #555;
 }
 
+
 /* Estilos para el botón de cerrar sesión */
 .logout-button {
   position: absolute;
@@ -89,4 +90,14 @@ a.topic-button:hover {
 .user-info span.points {
   color: #555;
   margin-top: 5px; /* Ajusta el margen superior para separar el nombre de usuario de los puntos */
+}
+
+/* Estilo para mostrar los mensajes provenientes de flash (clase success y clase error) */
+
+p.success {
+  color: green;
+}
+
+p.error {
+  color: red;
 }

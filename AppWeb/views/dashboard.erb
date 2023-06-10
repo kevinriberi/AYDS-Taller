@@ -25,5 +25,16 @@
     <% end %>
   </ul>
   
+
+ <span>
+    <% if flash.has?(:success) %>
+      <p class="success"><%= flash[:success].gsub(/\n/, '<br>') %></p>
+    <br>
+    <% end %>
+    <% if flash.has?(:error) %>
+      <p class="error"><%= flash[:error].gsub(/\n/, '<br>') %></p>
+    <br>
+    <% end %>
+  </span>
 </body>
 </html>

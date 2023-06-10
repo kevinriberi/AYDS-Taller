@@ -248,3 +248,4 @@ users.each do |user|
         Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
     end
 end
+
