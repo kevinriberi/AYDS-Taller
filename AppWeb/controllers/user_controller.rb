@@ -21,14 +21,6 @@ class UserController < Sinatra::Application
     erb :user
   end
 
-  post '/guest' do
-    guest = User.find_or_create_by(username: 'Invitad@') do |u|
-      u.password = 'guest_password'
-    end
-    session[:user_id] = guest.id
-    redirect '/'
-  end
-
   post '/logout' do
     session.clear
     redirect '/'
@@ -63,5 +55,4 @@ class UserController < Sinatra::Application
       end
     end
   end
-
 end

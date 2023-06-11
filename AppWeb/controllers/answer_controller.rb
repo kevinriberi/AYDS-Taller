@@ -10,7 +10,7 @@ class AnswerController < Sinatra::Application
     previous_answer_correct = previous_answer&.option_id == Question.find(question_id).correct_option_id
 
     # Crea una nueva instancia de Answer
-    Answer.create(user_id: user_id, question_id: question_id, option_id: option_id)
+    answer = Answer.create(user_id: user_id, question_id: question_id, option_id: option_id)
 
     current_user = User.find(user_id)
     question = Question.find(question_id)
@@ -18,6 +18,7 @@ class AnswerController < Sinatra::Application
     knowledge = Knowledge.find_by(user_id: user_id, topic_id: question.topic_id)
 
     if question.correct_option_id == option.id
+      answer.correct = true
       if previous_answer_correct
         flash[:success] = 'Respuesta correcta (ya respondida previamente)'
       else
@@ -40,11 +41,13 @@ class AnswerController < Sinatra::Application
         knowledge.save
       end
     else
+      answer.correct = false
       flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
       current_user.points -= 4 * question.level.to_i
       current_user.save
     end
 
+    answer.save
     redirect '/'
   end
 end

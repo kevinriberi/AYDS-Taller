@@ -10,7 +10,7 @@
 <form action="/answers" method="post">
   <input type="hidden" name="question_id" value="<%= @question.id %>">
   <div class="options-container">
-    <% @question.options.each do |option| %>
+    <% @question.options.shuffle.each do |option| %>
       <div>
         <input type="radio" name="option_id" value="<%= option.id %>">
         <label><%= option.content %></label>
