@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+ <head>
+ <meta charset="UTF-8">
+ <title>Ranking de Usuarios</title>
+ <link rel="stylesheet" href="/css/ranking.css">
+ </head>
+ <body>
+   <h1>Ranking de Usuarios</h1> 
+   <table>
+       <thead>
+       <tr>
+           <th>Posición</th>
+           <th>Usuario</th>
+           <th>Puntos</th>
+       </tr>
+       </thead>
+       <tbody>
+       <% @users.each.with_index(1) do |user, index| %>
+           <tr>
+           <td><%= index %></td>
+           <td><%= user.username %></td>
+           <td><%= user.points %></td>
+           </tr>
+       <% end %>
+       </tbody>
+    </table>
+     
+    <div class="pagination">
+    <% if @users.total_pages > 1 %>
+        <% if @users.current_page > 1 %>
+        <a href="/ranking?page=<%= @users.current_page - 1 %>" class="previous-link">Anterior</a>
+        <% end %>
+        <% if @users.current_page < @users.total_pages %>
+        <a href="/ranking?page=<%= @users.current_page + 1 %>" class="next-link">Siguiente</a>
+        <% end %>
+    <% end %>
+    </div>
+
+
+    <form action="/" method="get">
+        <div class="button-container">
+            <button type="submit">Volver al inicio</button>
+        </div>
+    </form>
+</body>
+</html>

@@ -10,6 +10,13 @@
     <span class="username"><%= @user.username %></span>
     <span class="points">Puntos: <%= @user.points %></span>
   </div>
+
+  <div class="ranking-container">
+    <form action="/ranking" method="get">
+      <button type="submit" class="button ranking-button">Ver Ranking</button>
+    </form>
+  </div>
+
   <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">
     <button type="submit" class="button logout-button">Cerrar sesión</button>
@@ -35,6 +42,8 @@
       </li>
     <% end %>
   </ul>
+
+  
 
  <span>
     <% if flash.has?(:success) %>

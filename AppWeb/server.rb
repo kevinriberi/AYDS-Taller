@@ -6,6 +6,7 @@ require 'sinatra/activerecord'
 require 'rack/session/cookie'
 require 'logger'
 require 'rack-flash'
+require 'will_paginate/active_record'
 require 'sinatra/reloader' if Sinatra::Base.environment == :development
 require_relative 'models/init'
 require_relative 'controllers/init'

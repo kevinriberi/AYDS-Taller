@@ -1,7 +1,7 @@
 class UserController < Sinatra::Application
      
   get '/login' do
-    erb :login
+    erb :index
   end
 
   post '/login' do
@@ -11,7 +11,7 @@ class UserController < Sinatra::Application
       redirect '/'
     else
       @error = "Usuario o contraseña incorrecta"
-      erb :login
+      erb :index
     end
   end
 
@@ -54,5 +54,11 @@ class UserController < Sinatra::Application
         erb :register
       end
     end
+  end
+
+  get '/ranking' do
+    @users = User.order(points: :desc).paginate(page: params[:page], per_page: 10)
+
+    erb :ranking
   end
 end
