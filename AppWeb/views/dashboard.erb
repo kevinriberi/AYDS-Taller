@@ -19,12 +19,22 @@
   <!-- Generar enlaces a cada tema -->
   <ul class="topics-list">
     <% @topics.each do |topic| %>
+      <% knowledge = Knowledge.find_by(user_id: @user.id, topic_id: topic.id) %>
       <li>
-        <a href="/topics/<%= topic.id %>" class="topic-button"><%= topic.name %></a>
+        <div class="topic-wrapper">
+        <% if knowledge.level < 4 %>
+          <a href="/topics/<%= topic.id %>" class="topic-button"><%= topic.name %></a>
+          <% if knowledge %>
+              <span class="topic-level">Nivel: <%= knowledge.level %></span>
+          <% end %>
+        <% else %>
+          <a class="topic-button"><%= topic.name %></a>
+          <span class="topic-level"> ¡Tema completo!</span>
+        <% end %>
+        </div>
       </li>
     <% end %>
   </ul>
-  
 
  <span>
     <% if flash.has?(:success) %>
