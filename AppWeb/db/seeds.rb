@@ -64,6 +64,22 @@ option3 = Option.create(content: "La asignación múltiple no es una práctica c
 
 question.update(correct_option_id: option1.id)
 
+#Pregunta 2
+question = Question.create(content: "En programación, ¿qué hace el operador de concatenación de cadenas?", topic_id: 2, level: 3)
+option1 = Option.create(content: "Combina dos cadenas en una sola.", question_id: question.id)
+option2 = Option.create(content: "Divide una cadena en múltiples subcadenas.", question_id: question.id)
+option3 = Option.create(content: "Compara dos cadenas y devuelve un valor booleano.", question_id: question.id)
+
+question.update(correct_option_id: option1.id)
+
+#Pregunta 3
+question = Question.create(content: "¿Cuál de las siguientes opciones es un ejemplo de una función de salida en programación?", topic_id: 2, level: 3)
+option1 = Option.create(content: "scanf()", question_id: question.id)
+option2 = Option.create(content: "sqrt()", question_id: question.id)
+option3 = Option.create(content: "printf()", question_id: question.id)
+
+question.update(correct_option_id: option3.id)
+
 # TOPIC: CONDICIONAL
 # NIVEL 1
 
@@ -100,6 +116,22 @@ option2 = Option.create(content: "AND (&&) devuelve verdadero si al menos uno de
 option3 = Option.create(content: "AND (&&) devuelve verdadero si ambos operandos son verdaderos, mientras que OR (||) devuelve verdadero si al menos uno de los operandos es verdadero.", question_id: question.id)
 
 question.update(correct_option_id: option3.id)
+
+#Pregunta 2
+question = Question.create(content: "En programación, ¿qué es una condición compuesta?", topic_id: 3, level: 2)
+option1 = Option.create(content: "Una condición que siempre se evalúa como verdadera.", question_id: question.id)
+option2 = Option.create(content: "Una condición que se utiliza para definir variables booleanas.", question_id: question.id)
+option3 = Option.create(content: "Una condición que combina múltiples condiciones utilizando operadores lógicos.", question_id: question.id)
+
+question.update(correct_option_id: option3.id)
+
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es un bloque 'else' en una sentencia 'if-else'?", topic_id: 3, level: 2)
+option1 = Option.create(content: "Un bloque de código que se ejecuta si la condición del 'if' es verdadera.", question_id: question.id)
+option2 = Option.create(content: "Un bloque de código que se ejecuta si la condición del 'if' es falsa.", question_id: question.id)
+option3 = Option.create(content: "Un bloque de código que se ejecuta antes de la evaluación de la condición del 'if'.", question_id: question.id)
+
+question.update(correct_option_id: option2.id)
 
 # NIVEL 3
 
@@ -146,6 +178,14 @@ option3 = Option.create(content: "El ciclo while evalúa la condición al final 
 
 question.update(correct_option_id: option1.id)
 
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es un ciclo 'for'?", topic_id: 4, level: 1)
+option1 = Option.create(content: "Una estructura utilizada para tomar decisiones basadas en una condición específica.", question_id: question.id)
+option2 = Option.create(content: "Una estructura utilizada para definir variables y asignarles valores.", question_id: question.id)
+option3 = Option.create(content: "Una estructura utilizada para repetir un bloque de código un número específico de veces.", question_id: question.id)
+
+question.update(correct_option_id: option3.id)
+
 # NIVEL 2
 
 #Pregunta 1
@@ -164,6 +204,14 @@ option3 = Option.create(content: "Una operación matemática que se realiza dent
 
 question.update(correct_option_id: option2.id)
 
+#Pregunta 3
+question = Question.create(content: "¿Cuál es el propósito de utilizar la sentencia 'continue' en un ciclo?", topic_id: 4, level: 2)
+option1 = Option.create(content: "Finalizar la ejecución del ciclo y continuar con la siguiente instrucción fuera del ciclo.", question_id: question.id)
+option2 = Option.create(content: "Ignorar una iteración del ciclo y pasar a la siguiente.", question_id: question.id)
+option3 = Option.create(content: "Reiniciar el ciclo desde el principio.", question_id: question.id)
+
+question.update(correct_option_id: option2.id)
+
 # NIVEL 3
 
 #Pregunta 1
@@ -179,6 +227,14 @@ question = Question.create(content: "¿Qué es la instrucción break en programa
 option1 = Option.create(content: "Una instrucción que finaliza el ciclo actual y continúa con la siguiente iteración.", question_id: question.id)
 option2 = Option.create(content: "Una instrucción que finaliza por completo la ejecución del programa.", question_id: question.id)
 option3 = Option.create(content: "Una instrucción que permite cambiar el flujo de ejecución a una sección específica del código.", question_id: question.id)
+
+question.update(correct_option_id: option1.id)
+
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es un ciclo 'foreach'?", topic_id: 4, level: 3)
+option1 = Option.create(content: "Una estructura utilizada para iterar sobre una colección de elementos, como un arreglo o una lista.", question_id: question.id)
+option2 = Option.create(content: "Una estructura utilizada para tomar decisiones basadas en múltiples condiciones secuenciales.", question_id: question.id)
+option3 = Option.create(content: "Una estructura utilizada para repetir un bloque de código un número específico de veces.", question_id: question.id)
 
 question.update(correct_option_id: option1.id)
 
@@ -201,6 +257,14 @@ option3 = Option.create(content: "Realizar operaciones matemáticas complejas.",
 
 question.update(correct_option_id: option1.id)
 
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es un parámetro en una función?", topic_id: 5, level: 1)
+option1 = Option.create(content: "Una variable utilizada para almacenar el resultado de una operación matemática.", question_id: question.id)
+option2 = Option.create(content: "Una variable utilizada para almacenar datos temporales dentro de una función.", question_id: question.id)
+option3 = Option.create(content: "Una variable utilizada para pasar valores a una función cuando se invoca.", question_id: question.id)
+
+question.update(correct_option_id: option3.id)
+
 # NIVEL 2
 
 #Pregunta 1
@@ -218,6 +282,14 @@ option2 = Option.create(content: "La habilidad de una función para recibir múl
 option3 = Option.create(content: "Un error que ocurre cuando una función se llama demasiadas veces.", question_id: question.id)
 
 question.update(correct_option_id: option1.id)
+
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es el 'valor de retorno' de una función?", topic_id: 5, level: 2)
+option1 = Option.create(content: "El valor que se pasa como argumento a una función.", question_id: question.id)
+option2 = Option.create(content: "El valor que una función devuelve después de realizar su tarea.", question_id: question.id)
+option3 = Option.create(content: "El valor predeterminado que se asigna a una variable dentro de una función.", question_id: question.id)
+
+question.update(correct_option_id: option2.id)
 
 
 # NIVEL 3
@@ -238,14 +310,33 @@ option3 = Option.create(content: "Funciones que solo pueden ser utilizadas por p
 
 question.update(correct_option_id: option2.id)
 
+#Pregunta 3
+question = Question.create(content: "En programación, ¿qué es la 'recursión de cola' (tail recursion)?", topic_id: 5, level: 3)
+option1 = Option.create(content: "Un tipo especial de recursión que utiliza una estructura de datos en forma de cola.", question_id: question.id)
+option2 = Option.create(content: "Un enfoque de programación que utiliza ciclos en lugar de recursión.", question_id: question.id)
+option3 = Option.create(content: "Una forma optimizada de recursión en la que la llamada recursiva es la última operación en la función.", question_id: question.id)
+
+question.update(correct_option_id: option3.id)
+
 # Obtengo todos los topics y los usuarios
 users = User.all
 topics = Topic.all
 
 # Para cada usuario, crear registros relacionados en otra tabla
+# Además inicializo la puntuación de cada usuario con 0 puntos
 users.each do |user|
     topics.each do |topic|
         Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
     end
+    user.points = 0
+    user.save
 end
 
+# Cargo en cada topic la cantidad de preguntas que hay en cada nivel
+
+topics.each do |topic|
+    topic.amount_questions_L1 = 3
+    topic.amount_questions_L2 = 3
+    topic.amount_questions_L3 = 3
+    topic.save
+end

@@ -28,12 +28,10 @@
 
  <span>
     <% if flash.has?(:success) %>
-      <p class="success"><%= flash[:success].gsub(/\n/, '<br>') %></p>
-    <br>
+      <p class="success"><%= flash[:success]%></p>
     <% end %>
     <% if flash.has?(:error) %>
-      <p class="error"><%= flash[:error].gsub(/\n/, '<br>') %></p>
-    <br>
+      <p class="error"><%= flash[:error]%></p>
     <% end %>
   </span>
 </body>

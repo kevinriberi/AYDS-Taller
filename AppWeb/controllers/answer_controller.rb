@@ -28,12 +28,16 @@ class AnswerController < Sinatra::Application
 
         # Verificar si se ha alcanzado el número de respuestas correctas requeridas para subir de nivel
         topic = Topic.find(question.topic_id)
-        if knowledge.correct_answers_count == topic.amount_questions_L1
+        if knowledge.correct_answers_count == 3
           knowledge.level += 1
           knowledge.correct_answers_count = 0
-          knowledge.save
-          flash[:success] = 'Has completado las preguntas de ese nivel'
+          if knowledge.level == 4
+            flash[:success] = '¡Felicitaciones! ¡Completaste el tema!'
+          else
+            flash[:success] = '¡Felicitaciones! ¡Pasaste al siguiente nivel de dificultad!'
+          end
         end
+        knowledge.save
       end
     else
       flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
