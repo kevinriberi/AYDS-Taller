@@ -43,6 +43,7 @@ class UserController < Sinatra::Application
   
         # Si el usuario se guarda correctamente, redirigir a la página de inicio de sesión
         if user.save
+          flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
           redirect '/login'
         else
           # Si hay un error, mostrar el mensaje de error en la página de registro

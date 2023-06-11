@@ -8,7 +8,7 @@
 <body>
     <h1>Registrarse</h1>
     <% if @error %>
-      <p class="error"><%= @error %></p>
+      <p id="error-message" class="error"><%= @error %></p>
     <% end %>
     <form action="/register" method="post">
       <div>

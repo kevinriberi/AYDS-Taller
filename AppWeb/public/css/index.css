@@ -40,3 +40,17 @@ button:hover {
   display: flex;
   gap: 10px;
 }
+.flash-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.flash-container p {
+  color: #2a6f2d;
+  padding: 10px;
+  margin: 0;
+}
+#error-message.error {
+  color: red;
+}

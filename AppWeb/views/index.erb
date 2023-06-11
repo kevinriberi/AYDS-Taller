@@ -8,7 +8,10 @@
   <body>
     <div class="page-container">
       <h1>Bienvenido a Prelud-Code!</h1>
-    
+
+      <% if @error %>
+        <p id="error-message" class="error"><%= @error %></p>
+      <% end %>
       <div class="form-container">
         <form action="/login" method="POST">
           <input type="username" name="username" placeholder="Nombre de usuario" required/>
@@ -20,6 +23,11 @@
           <button type="submit">Registrarse</button>
         </form>
       </div>
+        <% if flash.has?(:success) %>
+        <span class="flash-container">
+          <p class="success"><%= flash[:success] %></p>
+        </span>
+      <% end %>
     </div>
   </body>
 </html>
