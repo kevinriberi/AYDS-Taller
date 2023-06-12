@@ -5,7 +5,11 @@
     gem 'logger'
     gem 'bcrypt'
     gem 'rack-flash3'
-
+    gem 'will_paginate'
+    group :test do
+      gem 'rspec'
+    end
+    
    github 'sinatra/sinatra', branch: 'main' do
     gem 'sinatra'
     gem 'sinatra-contrib'
