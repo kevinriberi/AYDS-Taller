@@ -11,6 +11,8 @@ topic2 = Topic.create(name: "Condicional")
 topic3 = Topic.create(name: "Ciclos")
 topic4 = Topic.create(name: "Funciones")
 
+topics = [topic1, topic2, topic3, topic4]
+
 # TOPIC: SECUENCIAL
 # NIVEL 1
 
@@ -330,8 +332,7 @@ question.update(correct_option_id: option3.id)
 # Cargo en cada topic la cantidad de preguntas que hay en cada nivel
 
 topics.each do |topic|
-    topic.amount_questions_L1 = 3
-    topic.amount_questions_L2 = 3
-    topic.amount_questions_L3 = 3
-    topic.save
+  topic.update(amount_questions_L1: 3,
+  	           amount_questions_L2: 3,
+  	           amount_questions_L3: 3)
 end
