@@ -11,8 +11,6 @@ require 'sinatra/reloader' if Sinatra::Base.environment == :development
 require_relative 'models/init'
 require_relative 'controllers/init'
 
-set :database, {adapter: "sqlite3", database: "my-project.sqlite3"}
-
 class App < Sinatra::Application
 
   set :views, Proc.new { File.join(root, 'views') }
