@@ -36,31 +36,36 @@ class UserController < Sinatra::Application
       @error = 'El nombre de usuario ya está registrado'
       erb :register
     else
-      # Verificar si las contraseñas coinciden
-      if params[:password] == params[:confirm_password]
-        # Crear un nuevo usuario con los datos del formulario
-        user = User.new(username: params[:username], password: params[:password])
+      if User.exists?(email: params[:email])
+        @error = 'La dirección de email ya está registrada con otro usuario'
+        erb :register
+      else
+        # Verificar si las contraseñas coinciden
+        if params[:password] == params[:confirm_password]
+          # Crear un nuevo usuario con los datos del formulario
+          user = User.new(username: params[:username], email: params[:email], password: params[:password])
 
-        # Si el usuario se guarda correctamente, redirigir a la página de inicio de sesión
-        if user.save
-          #esto deberia ponerlo en un metodo aparte el de inicializar al usuario
-          topics = Topic.all
-          # Guardo para cada usuario el nivel inicial con cada tema
-          topics.each do |topic|
-              Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
+          # Si el usuario se guarda correctamente, redirigir a la página de inicio de sesión
+          if user.save
+            #esto deberia ponerlo en un metodo aparte el de inicializar al usuario
+            topics = Topic.all
+            # Guardo para cada usuario el nivel inicial con cada tema
+            topics.each do |topic|
+                Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
+            end
+                user.points = 0
+                user.save
+            flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
+            redirect '/login'
+          else
+            # Si hay un error, mostrar el mensaje de error en la página de registro
+            @error = user.errors.full_messages.first
+            erb :register
           end
-              user.points = 0
-              user.save
-          flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
-          redirect '/login'
         else
-          # Si hay un error, mostrar el mensaje de error en la página de registro
-          @error = user.errors.full_messages.first
+          @error = 'Las contraseñas no coinciden'
           erb :register
         end
-      else
-        @error = 'Las contraseñas no coinciden'
-        erb :register
       end
     end
   end
