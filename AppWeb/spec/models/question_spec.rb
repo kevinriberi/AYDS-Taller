@@ -1,7 +1,7 @@
 require 'sinatra/activerecord'
 require_relative '../../models/init.rb'
 
-describe Question do
+RSpec.describe Question do
   it "is valid with a content, an existent topic and a level in {1,2,3}" do
     topic = Topic.create(name: "Historia", amount_questions_L1: 1, amount_questions_L2: 1, amount_questions_L3: 1)
     question = Question.new(content: "¿Cuándo fue la revolución de Mayo?", topic_id: topic.id, level: 1)

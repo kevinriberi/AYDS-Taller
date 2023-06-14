@@ -1,7 +1,7 @@
 require 'sinatra/activerecord'
 require_relative '../../models/init.rb'
 
-describe Topic do
+RSpec.describe Topic do
   it "is valid with a name and amount of questions greater or equal than zero" do
     topic = Topic.new(name: "Historia", amount_questions_L1: 0, amount_questions_L2: 2, amount_questions_L3: 1)
     expect(topic).to be_valid
