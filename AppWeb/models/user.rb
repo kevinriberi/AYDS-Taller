@@ -15,4 +15,13 @@ class User < ActiveRecord::Base
             self.points -= 4 * level
         end
     end
+
+    def initialize_knowledges
+        topics = Topic.all
+
+        topics.each do |topic|
+            Knowledge.create(user_id: self.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
+        end
+        self.points = 0
+    end
 end
