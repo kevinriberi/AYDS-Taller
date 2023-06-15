@@ -4,6 +4,7 @@ class Knowledge < ActiveRecord::Base
 
     validates :user_id, presence: true
     validates :topic_id, presence: true
+    validates :level, presence: true, inclusion: { in: 1..3 }
   
     validate :valid_user_id
     validate :valid_topic_id

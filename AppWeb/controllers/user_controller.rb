@@ -31,31 +31,19 @@ class UserController < Sinatra::Application
   end
   
   post '/register' do
-    # Verificar si el nombre de usuario ya está registrado
-    if User.exists?(username: params[:username])
+    if username_taken?(params[:username])
       @error = 'El nombre de usuario ya está registrado'
       erb :register
+    elsif email_taken?(params[:email])
+      @error = 'La dirección de email ya está registrada con otro usuario'
+      erb :register
+    elsif passwords_match?(params[:password], params[:confirm_password])
+      create_user(params[:username], params[:email], params[:password])
+      flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
+      redirect '/login'
     else
-      if User.exists?(email: params[:email])
-        @error = 'La dirección de email ya está registrada con otro usuario'
-        erb :register
-      else
-        # Verificar si las contraseñas coinciden
-        if params[:password] == params[:confirm_password]
-          # Crear un nuevo usuario con los datos del formulario
-          user = User.new(username: params[:username], email: params[:email], password: params[:password])
-
-          user.save
-          user.initialize_knowledges
-
-          flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
-          redirect '/login'
-
-        else
-          @error = 'Las contraseñas no coinciden'
-          erb :register
-        end
-      end
+      @error = 'Las contraseñas no coinciden'
+      erb :register
     end
   end
 
@@ -64,4 +52,26 @@ class UserController < Sinatra::Application
 
     erb :ranking
   end
+end
+
+
+
+# definicion de metodos auxiliares
+
+def username_taken?(username)
+  User.exists?(username: username)
+end
+
+def email_taken?(email)
+  User.exists?(email: email)
+end
+
+def passwords_match?(password, confirm_password)
+  password == confirm_password
+end
+
+def create_user(username, email, password)
+  user = User.new(username: username, email: email, password: password)
+  user.save
+  user.initialize_knowledges
 end

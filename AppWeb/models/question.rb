@@ -1,8 +1,8 @@
 class Question < ActiveRecord::Base
+    
     belongs_to :topic
     has_many :answers
     has_many :options
-    has_one :correct_option, class_name: "Option"
 
     validates :content, presence: true, uniqueness: true
     validates :level, presence: true, inclusion: { in: 1..3 }
