@@ -7,4 +7,12 @@ class User < ActiveRecord::Base
 
     validates :username, presence: true
     validates :email, presence: true, uniqueness: true
+
+    def update_points (correct, level)
+        if correct
+            self.points += 10 * level
+        else
+            self.points -= 4 * level
+        end
+    end
 end

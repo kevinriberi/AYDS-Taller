@@ -3,6 +3,7 @@ Answer.destroy_all
 Option.destroy_all
 Question.destroy_all
 Topic.destroy_all
+User.destroy_all
 
 # CREACION DE TOPICS
 
@@ -364,6 +365,19 @@ option3 = Option.create(content: "Una forma optimizada de recursión en la que l
 option3.update(correct: true)
 #question.update(correct_option_id: option3.id)
 
+# Obtengo todos los topics y los usuarios
+users = User.all
+topics = Topic.all
+
+# Para cada usuario, crear registros relacionados en otra tabla
+# Además inicializo la puntuación de cada usuario con 0 puntos
+users.each do |user|
+    topics.each do |topic|
+        Knowledge.create(user_id: user.id, topic_id: topic.id, level: 1, correct_answers_count: 0)
+    end
+    user.points = 0
+    user.save
+end
 # Cargo en cada topic la cantidad de preguntas que hay en cada nivel
 # (Dadas las nuevas validaciones, sí o sí, hay que crear el tema con una cantidad de respuestas válida)
 # (El código que sigue no daña nada pero es innenecesario)

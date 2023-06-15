@@ -13,18 +13,13 @@ class AnswerController < Sinatra::Application
     option = Option.find(option_id)
     knowledge = Knowledge.find_by(user_id: user_id, topic_id: question.topic_id)
 
-    if option.correct
+    current_user.update_points(option.correct, question.level)
+    current_user.save
+
+    if option.correct 
         flash[:success] = '¡Respuesta correcta!'
-        current_user.points += 10 * question.level.to_i
-        current_user.save
-        knowledge.correct_answers_count += 1
-    
-        # Verificar si se ha alcanzado el número de respuestas correctas requeridas para subir de nivel
-        topic = Topic.find(question.topic_id)
-        if knowledge.correct_answers_count == 3
-          knowledge.level += 1
-          knowledge.correct_answers_count = 0
-          if knowledge.level == 4
+        if (knowledge.update_by_correct_answer)
+          if (knowledge.is_finished)
             flash[:success] = '¡Felicitaciones! ¡Completaste el tema!'
           else
             flash[:success] = '¡Felicitaciones! ¡Pasaste al siguiente nivel de dificultad!'
@@ -32,11 +27,9 @@ class AnswerController < Sinatra::Application
         end
         knowledge.save
     else
-        flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
-        current_user.points -= 4 * question.level.to_i
-        current_user.save
+      flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
     end
-
+        
     answer.save
     redirect '/'
   end
