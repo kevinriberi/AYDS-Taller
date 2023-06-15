@@ -4,7 +4,7 @@ class Topic < ActiveRecord::Base
     has_many :knowledges
     has_many :users, :through => :knowledges
 
-    validates :name, presence: true
+    validates :name, presence: true, uniqueness: true
     validates :amount_questions_L1, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :amount_questions_L2, presence: true, numericality: { greater_than_or_equal_to: 0 }
     validates :amount_questions_L3, presence: true, numericality: { greater_than_or_equal_to: 0 }

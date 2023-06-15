@@ -3,7 +3,7 @@ require 'sinatra/activerecord'
 require_relative '../../models/init.rb'
 
 
-RSpec.describe User do
+describe User do
   it "is valid with a username and email" do
     user = User.new(username: "Martincito28", email: "martinp@example.com", password_digest: "password")
     expect(user).to be_valid
@@ -27,6 +27,12 @@ RSpec.describe User do
   it "is invalid with a duplicate email address" do
     existing_user = User.create(username: "Messi10", email: "messi@example.com", password_digest: "password")
     user = User.new(username: "argento", email: "messi@example.com", password_digest: "password")
+    expect(user).not_to be_valid
+  end
+
+  it "is invalid with a duplicate username" do
+    existing_user = User.create(username: "Marcos10", email: "marcos@example.com", password_digest: "password")
+    user = User.new(username: "Marcos10", email: "otromail@example.com", password_digest: "password")
     expect(user).not_to be_valid
   end
 end
