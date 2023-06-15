@@ -4,7 +4,7 @@ require_relative '../../models/init.rb'
 
 
 describe User do
-  it "is valid with a username and email" do
+  it "is valid with a username an email and a password" do
     user = User.new(username: "Martincito28", email: "martinp@example.com", password_digest: "password")
     expect(user).to be_valid
   end

@@ -12,6 +12,9 @@ class Answer < ActiveRecord::Base
     validate :valid_question_id
     validate :valid_option_id
 
+    validate :valid_option_respect_question
+    validate :matching_user_level_in_topic
+
     private
 
     def valid_user_id
@@ -30,5 +33,22 @@ class Answer < ActiveRecord::Base
         return if Option.exists?(option_id)
 
         errors.add(:option_id, "does not exist")
+    end
+
+    def valid_option_respect_question
+        if option.present? && option.question_id != question_id
+            errors.add(:option_id, "does not belong to the corresponding question")
+        end
+    end
+    
+    def matching_user_level_in_topic
+        if question.present?
+            topic = question.topic_id
+            knowledge = Knowledge.find_by(user_id: user_id, topic_id: topic)
+    
+            if knowledge.nil? || question.level != knowledge.level
+                errors.add(:question, "must have the same level as the user's level in the topic")
+            end
+        end
     end
 end
