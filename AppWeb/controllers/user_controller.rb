@@ -42,7 +42,7 @@ class UserController < Sinatra::Application
       flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
       redirect '/login'
     else
-      @error = 'Las contraseñas no coinciden'
+      @error = 'Las contraseñas no coinciden o estan vacias'
       erb :register
     end
   end
@@ -67,7 +67,7 @@ def email_taken?(email)
 end
 
 def passwords_match?(password, confirm_password)
-  password == confirm_password
+  !password.empty? && !confirm_password.empty? && password == confirm_password
 end
 
 def create_user(username, email, password)
