@@ -1,6 +1,8 @@
   # spec/spec_helper.rb
   require 'sinatra/base'
   require 'sinatra/activerecord'
+  require 'simplecov'
+  SimpleCov.start
 
   ENV['RACK_ENV'] ||= 'test'
   ENV['APP_ENV'] ||= 'test'

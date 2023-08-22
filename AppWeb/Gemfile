@@ -9,6 +9,7 @@
     
     group :test do
       gem 'rspec'
+      gem 'simplecov'
     end
     
    github 'sinatra/sinatra', branch: 'main' do
