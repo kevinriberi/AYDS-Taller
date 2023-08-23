@@ -35,4 +35,100 @@ describe User do
     user = User.new(username: "Marcos10", email: "otromail@example.com", password_digest: "password")
     expect(user).not_to be_valid
   end
+
+  describe "username_taken?" do
+    it 'returns true if username is taken' do
+      #aca está hardcodeado, mejorar después
+      existing_user = User.find(1)
+      result = User.username_taken?('Messi10')
+      expect(result).to be true
+    end
+
+    it 'returns false if username is not taken' do
+      result = User.username_taken?('non_existing_username')
+      expect(result).to be false
+    end
+  end
+
+  describe "email_taken?" do
+    it 'returns true if email is taken' do
+      existing_user = User.find(1)
+      result = User.email_taken?('messi@example.com')
+      expect(result).to be true
+    end
+
+    it 'returns false if username is not taken' do
+      result = User.username_taken?('non_existing_email')
+      expect(result).to be false
+    end
+  end
+
+  describe 'passwords_match?' do
+    it 'returns true if passwords match' do
+      result = User.passwords_match?('password123', 'password123')
+      expect(result).to be true
+    end
+
+    it 'returns false if passwords do not match' do
+      result = User.passwords_match?('password123', 'different_password')
+      expect(result).to be false
+    end
+
+    it 'returns false if password is empty' do
+      result = User.passwords_match?('', 'password123')
+      expect(result).to be false
+    end
+
+    it 'returns false if confirm_password is empty' do
+      result = User.passwords_match?('password123', '')
+      expect(result).to be false
+    end
+
+    it 'returns false if both password and confirm_password are empty' do
+      result = User.passwords_match?('', '')
+      expect(result).to be false
+    end
+  end
+
+  describe 'initialize_knowledges' do
+    it 'initializes knowledges and sets points to 0' do
+      # Crea un usuario de prueba
+      user = User.find(1)
+
+      # Llama al método que estás probando
+      user.initialize_knowledges
+
+      # Verifica que los conocimientos se hayan creado correctamente
+      topics = Topic.all
+      topics.each do |topic|
+        knowledge = Knowledge.find_by(user_id: user.id, topic_id: topic.id)
+        expect(knowledge).not_to be_nil
+        expect(knowledge.level).to eq(1)
+        expect(knowledge.correct_answers_count).to eq(0)
+      end
+
+      # Verifica que el atributo points se haya establecido en 0
+      expect(user.points).to eq(0)
+    end
+  end
+
+  describe 'update_points' do
+    it 'increases points when answer is correct' do
+      user = User.find(1)
+      initial_points = user.points
+
+      user.update_points(true, 3)
+
+      expect(user.points).to eq(initial_points + 30) # 10 * level (3) = 30
+    end
+
+    it 'decreases points when answer is incorrect' do
+      user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+      initial_points = user.points
+
+      user.update_points(false, 2)
+
+      expect(user.points).to eq(initial_points - 8) # -4 * level (2) = -8
+    end
+  end
 end

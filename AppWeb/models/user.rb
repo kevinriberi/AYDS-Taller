@@ -24,4 +24,17 @@ class User < ActiveRecord::Base
         end
         self.points = 0
     end
+
+    def self.username_taken?(username)
+        User.exists?(username: username)
+    end
+      
+    def self.email_taken?(email)
+        User.exists?(email: email)
+    end
+      
+    def self.passwords_match?(password, confirm_password)
+        !password.empty? && !confirm_password.empty? && password == confirm_password
+    end
+      
 end

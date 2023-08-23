@@ -8,6 +8,7 @@ describe Answer do
     question_1 = Question.find(3)
     option_q1 = Option.find(1)
 
+    # aca traigo una pregunta del tema "Deportes"
     question_2 = Question.find(4)
     option_q2 = Option.find(2)
 

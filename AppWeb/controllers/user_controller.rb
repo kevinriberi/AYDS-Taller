@@ -38,7 +38,8 @@ class UserController < Sinatra::Application
       @error = 'La dirección de email ya está registrada con otro usuario'
       erb :register
     elsif passwords_match?(params[:password], params[:confirm_password])
-      create_user(params[:username], params[:email], params[:password])
+      user = User.create(username: params[:username], email: params[:email], password: params[:password])
+      user.initialize_knowledges
       flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
       redirect '/login'
     else
@@ -54,24 +55,3 @@ class UserController < Sinatra::Application
   end
 end
 
-
-
-# definicion de metodos auxiliares
-
-def username_taken?(username)
-  User.exists?(username: username)
-end
-
-def email_taken?(email)
-  User.exists?(email: email)
-end
-
-def passwords_match?(password, confirm_password)
-  !password.empty? && !confirm_password.empty? && password == confirm_password
-end
-
-def create_user(username, email, password)
-  user = User.new(username: username, email: email, password: password)
-  user.save
-  user.initialize_knowledges
-end
