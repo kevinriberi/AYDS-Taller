@@ -10,9 +10,23 @@ class Knowledge < ActiveRecord::Base
     validate :valid_topic_id
   
     # metodo que actualiza la relacion knowledge, devuelve true si se aumenta de nivel
+    #def update_by_correct_answer
+    #  self.correct_answers_count += 1
+    #  if (self.correct_answers_count == 3)
+    #    self.level += 1
+    #    self.correct_answers_count = 0
+    #    true
+    #  else
+    #    false
+    #  end
+    #end
+     
     def update_by_correct_answer
+      self.correct_answers_count ||= 0
+      level_up_threshold = topic.send("amount_questions_L#{level}".to_sym)
+  
       self.correct_answers_count += 1
-      if (self.correct_answers_count == 3)
+      if self.correct_answers_count >= level_up_threshold
         self.level += 1
         self.correct_answers_count = 0
         true
@@ -20,7 +34,12 @@ class Knowledge < ActiveRecord::Base
         false
       end
     end
-      
+  
+
+
+
+
+
     # metodo que corrobora si se ha completado el tema en su totalidad
     def is_finished
       if self.level == 4
