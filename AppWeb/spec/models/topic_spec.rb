@@ -46,5 +46,6 @@ describe Topic do
     existing_topic = Topic.create(name: "Matematica", amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
     topic = Topic.new(name: "Matematica", amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
     expect(topic).not_to be_valid
+    existing_topic.destroy
   end
 end

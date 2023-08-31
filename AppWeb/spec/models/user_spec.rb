@@ -28,12 +28,14 @@ describe User do
     existing_user = User.create(username: "Messi10", email: "messi@example.com", password_digest: "password")
     user = User.new(username: "argento", email: "messi@example.com", password_digest: "password")
     expect(user).not_to be_valid
+    existing_user.destroy
   end
 
   it "is invalid with a duplicate username" do
     existing_user = User.create(username: "Marcos10", email: "marcos@example.com", password_digest: "password")
     user = User.new(username: "Marcos10", email: "otromail@example.com", password_digest: "password")
     expect(user).not_to be_valid
+    existing_user.destroy
   end
 
   describe "username_taken?" do
@@ -114,21 +116,25 @@ describe User do
 
   describe 'update_points' do
     it 'increases points when answer is correct' do
-      user = User.find(1)
+      user = User.create(username: 'test_user1', email: 'test1@example.com', password: 'password123')
       initial_points = user.points
 
       user.update_points(true, 3)
 
       expect(user.points).to eq(initial_points + 30) # 10 * level (3) = 30
+
+      user.destroy
     end
 
     it 'decreases points when answer is incorrect' do
-      user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+      user = User.create(username: 'test_user2', email: 'test2@example.com', password: 'password123')
       initial_points = user.points
 
       user.update_points(false, 2)
 
       expect(user.points).to eq(initial_points - 8) # -4 * level (2) = -8
+
+      user.destroy
     end
   end
 end
