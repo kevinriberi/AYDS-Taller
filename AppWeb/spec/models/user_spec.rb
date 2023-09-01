@@ -41,9 +41,10 @@ describe User do
   describe "username_taken?" do
     it 'returns true if username is taken' do
       #aca está hardcodeado, mejorar después
-      existing_user = User.find(1)
-      result = User.username_taken?('Messi10')
+      existing_user = User.create(username: "Marcos10", email: "marcos@example.com", password_digest: "password")
+      result = User.username_taken?("Marcos10")
       expect(result).to be true
+      existing_user.destroy
     end
 
     it 'returns false if username is not taken' do
@@ -54,9 +55,10 @@ describe User do
 
   describe "email_taken?" do
     it 'returns true if email is taken' do
-      existing_user = User.find(1)
+      existing_user = User.create(username: "Messi10", email: "messi@example.com", password_digest: "password")
       result = User.email_taken?('messi@example.com')
       expect(result).to be true
+      existing_user.destroy
     end
 
     it 'returns false if username is not taken' do
@@ -90,12 +92,14 @@ describe User do
       result = User.passwords_match?('', '')
       expect(result).to be false
     end
+
   end
 
   describe 'initialize_knowledges' do
     it 'initializes knowledges and sets points to 0' do
       # Crea un usuario de prueba
-      user = User.find(1)
+      user = User.create(username: "user_test", email: "user@test.com", password_digest: "password")
+      topic = Topic.create(name: "Historia", amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
 
       # Llama al método que estás probando
       user.initialize_knowledges
@@ -103,7 +107,7 @@ describe User do
       # Verifica que los conocimientos se hayan creado correctamente
       topics = Topic.all
       topics.each do |topic|
-        knowledge = Knowledge.find_by(user_id: user.id, topic_id: topic.id)
+        knowledge = Knowledge.find_by(user: user, topic: topic)
         expect(knowledge).not_to be_nil
         expect(knowledge.level).to eq(1)
         expect(knowledge.correct_answers_count).to eq(0)
@@ -111,6 +115,9 @@ describe User do
 
       # Verifica que el atributo points se haya establecido en 0
       expect(user.points).to eq(0)
+      Knowledge.destroy_all
+      topic.destroy
+      user.destroy
     end
   end
 

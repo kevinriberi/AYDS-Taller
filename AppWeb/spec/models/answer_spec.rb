@@ -14,8 +14,20 @@ describe Answer do
     Knowledge.create(user: user, topic: topic_2, level: 1)
 
     it "is valid with a valid user, an option of the question and a question of the user's level in the topic" do
-        answer = Answer.new(user: user, question: question_1, option: option_q1)
+
+        user3 = User.create(username: "Mateo19", email: "mateo19@example.com", password_digest: "password")
+        topic_3 = Topic.create(name: "Gastronomía", amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+        question_3 = Question.create(content: "¿De qué país es originario el Onigiri", topic: topic_3, level: 3)
+        option_q3 = Option.create(content: "Japón", question: question_3)
+        knowledge_3 = Knowledge.create(user: user3, topic: topic_3, level: 3)
+        answer = Answer.new(user: user3, question: question_3, option: option_q3)
         expect(answer).to be_valid
+        knowledge_3.destroy
+        option_q3.destroy
+        question_3.destroy
+        topic_3.destroy
+        user3.destroy
+
     end
 
     it "is invalid without an user" do

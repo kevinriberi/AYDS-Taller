@@ -6,8 +6,12 @@ describe Option do
   question = Question.create(content: "¿Cuántos jugadores tiene un equipo de basquet?", topic: topic, level: 2)
 
   it "is valid with a content and an existent question" do
-  option = Option.new(content: "7", question: question)
+  topic2 = Topic.create(name: "Deportes de campo", amount_questions_L1: 5, amount_questions_L2: 5, amount_questions_L3: 3)
+  question2 = Question.create(content: "¿Cuántos jugadores tiene un equipo de hockey?", topic: topic2, level: 2)
+  option = Option.new(content: "7", question: question2)
   expect(option).to be_valid
+  question2.destroy
+  topic2.destroy
   end
 
   it "is invalid without a content" do

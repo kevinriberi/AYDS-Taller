@@ -6,8 +6,10 @@ describe Question do
   topic = Topic.create(name: "Historia", amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
 
   it "is valid with a content, an existent topic and a level in {1,2,3}" do
-    question = Question.new(content: "¿Cuándo fue la revolución de Mayo?", topic: topic, level: 1)
+    topic2 = Topic.create(name: "Historia Argentina", amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+    question = Question.new(content: "¿Cuándo fue la revolución de Mayo?", topic: topic2, level: 1)
     expect(question).to be_valid
+    topic2.destroy
   end
 
   it "is invalid without a content" do
