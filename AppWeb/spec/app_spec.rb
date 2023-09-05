@@ -1,6 +1,6 @@
 # spec/app_spec.rb
 require 'rack/test'
-require_relative '../../server.rb'
+require_relative '../server.rb'
 
 RSpec.describe 'Sinatra App' do
   include Rack::Test::Methods
