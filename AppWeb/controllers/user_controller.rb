@@ -1,4 +1,7 @@
+require_relative '../models/user'
+
 class UserController < Sinatra::Application
+
      
   get '/login' do
     erb :index
@@ -31,13 +34,13 @@ class UserController < Sinatra::Application
   end
   
   post '/register' do
-    if username_taken?(params[:username])
+    if User.username_taken?(params[:username])
       @error = 'El nombre de usuario ya está registrado'
       erb :register
-    elsif email_taken?(params[:email])
+    elsif User.email_taken?(params[:email])
       @error = 'La dirección de email ya está registrada con otro usuario'
       erb :register
-    elsif passwords_match?(params[:password], params[:confirm_password])
+    elsif User.passwords_match?(params[:password], params[:confirm_password])
       user = User.create(username: params[:username], email: params[:email], password: params[:password])
       user.initialize_knowledges
       flash[:success] = '¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!'
