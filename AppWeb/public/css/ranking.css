@@ -18,6 +18,12 @@ body {
     margin-bottom: 20px;
   }
   
+  .current-user {
+    background-color: gray;
+    font-weight: bold; 
+    color: white;
+  }
+
   th, td {
     padding: 10px;
     text-align: left;
@@ -83,3 +89,4 @@ body {
   div.pagination .next-link {
     text-decoration: underline;
   }
+

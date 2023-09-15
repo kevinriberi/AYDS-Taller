@@ -18,7 +18,7 @@
     <tbody>
       <% position_offset = (@users.current_page - 1) * @users.per_page %>
       <% @users.each.with_index(1) do |user, index| %>
-        <tr>
+        <tr <%= 'class="current-user"' if user.id == session[:user_id] %>> <!-- Agrega la clase solo para el usuario actual -->
           <td><%= position_offset + index %></td>
           <td><%= user.username %></td>
           <td><%= user.points %></td>

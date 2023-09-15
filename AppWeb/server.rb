@@ -52,6 +52,7 @@ class App < Sinatra::Application
 
   get '/' do
     if logged_in?
+      session[:from_dashboard] = true
       @user = current_user
       @topics = Topic.all
       erb :dashboard
