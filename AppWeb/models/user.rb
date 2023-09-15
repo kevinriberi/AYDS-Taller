@@ -16,6 +16,14 @@ class User < ActiveRecord::Base
         end
     end
 
+    def update_streak (correct)
+        if correct
+            self.streak = [self.streak + 1, 1].max
+          else
+            self.streak = [self.streak - 1, -1].min
+        end
+    end
+
     def initialize_knowledges
         topics = Topic.all
 

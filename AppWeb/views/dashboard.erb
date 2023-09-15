@@ -9,13 +9,16 @@
   <div class="user-info">
     <span class="username"><%= @user.username %></span>
     <span class="points">Puntos: <%= @user.points %></span>
+    <span class="streak">Racha: <%= @user.streak %></span>
   </div>
 
+<div class="user-actions">
   <div class="ranking-container">
     <form action="/ranking" method="get">
       <button type="submit" class="button ranking-button">Ver Ranking</button>
     </form>
   </div>
+</div>
 
   <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">

@@ -144,4 +144,46 @@ describe User do
       user.destroy
     end
   end
+
+  describe '#update_streak' do
+    context 'when correct is true' do
+      it 'increases the streak to 1 if streak is 0' do
+        user = User.new(streak: 0)
+        user.update_streak(true)
+        expect(user.streak).to eq(1)
+      end
+
+      it 'increases the streak at 1 if streak is greater than 0' do
+        user = User.new(streak: 2)
+        user.update_streak(true)
+        expect(user.streak).to eq(3)
+      end
+
+      it 'set the streak at 1 if streak is less than 0' do
+        user = User.new(streak: -4)
+        user.update_streak(true)
+        expect(user.streak).to eq(1)
+      end
+    end
+
+    context 'when correct is false' do
+      it 'decreases the streak to -1 if streak is 0' do
+        user = User.new(streak: 0)
+        user.update_streak(false)
+        expect(user.streak).to eq(-1)
+      end
+
+      it 'decreases the streak at 1 if streak is less than 0' do
+        user = User.new(streak: -5)
+        user.update_streak(false)
+        expect(user.streak).to eq(-6)
+      end
+
+      it 'set the streak at -1 if streak is greater than 0' do
+        user = User.new(streak: 5)
+        user.update_streak(false)
+        expect(user.streak).to eq(-1)
+      end
+    end
+  end
 end

@@ -14,6 +14,7 @@ class AnswerController < Sinatra::Application
     knowledge = Knowledge.find_by(user_id: user_id, topic_id: question.topic_id)
 
     current_user.update_points(option.correct, question.level)
+    current_user.update_streak(option.correct)
     current_user.save
 
     if option.correct 
