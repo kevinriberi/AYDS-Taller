@@ -60,7 +60,8 @@ class UserController < Sinatra::Application
       per_page = 10
       page = (current_user_index / per_page) + 1
       @users = users_ordered.paginate(page: page, per_page: per_page)
-      session.delete(:from_dashboard) # Elimina la variable de sesión después de usarla
+      session[:from_dashboard] = false
+      #session.delete(:from_dashboard) # Elimina la variable de sesión después de usarla
     else
       # Si el usuario accede directamente, muestra la página del ranking que corresponda
       @users = User.order(points: :desc).paginate(page: params[:page], per_page: 10)
