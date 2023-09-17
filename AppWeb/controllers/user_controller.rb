@@ -18,12 +18,6 @@ class UserController < Sinatra::Application
     end
   end
 
-  post '/users' do
-    @user = User.find_or_create_by(username: params[:username])
-
-    erb :user
-  end
-
   post '/logout' do
     session.clear
     redirect '/'
@@ -60,8 +54,7 @@ class UserController < Sinatra::Application
       per_page = 10
       page = (current_user_index / per_page) + 1
       @users = users_ordered.paginate(page: page, per_page: per_page)
-      session[:from_dashboard] = false
-      #session.delete(:from_dashboard) # Elimina la variable de sesión después de usarla
+      session.delete(:from_dashboard) # Elimina la variable de sesión después de usarla
     else
       # Si el usuario accede directamente, muestra la página del ranking que corresponda
       @users = User.order(points: :desc).paginate(page: params[:page], per_page: 10)
