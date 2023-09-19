@@ -47,3 +47,9 @@ body {
   input[type="submit"]:hover {
     background-color: #555;
   }
+
+  #contador {
+    font-family: Arial, sans-serif;
+    /*font-size: 36px;*/
+    color: #00f;
+  }
