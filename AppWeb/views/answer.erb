@@ -6,38 +6,45 @@
   <link rel="stylesheet" href="/css/answer.css">
 
 <script>
-  let respuestaEnviada = false; // Variable para rastrear si se envió la respuesta
+  let submittedAnswer = false; // Variable para rastrear si se envió la respuesta
 
-  const tiempoFinal = new Date().getTime() + 5 * 1000;
+  const finalTime = new Date().getTime() + 15 * 1000;
 
-  const intervalo = setInterval(function () {
-    const ahora = new Date().getTime();
-    const tiempoRestante = tiempoFinal - ahora;
+  const interval = setInterval(function () {
+    const now = new Date().getTime();
+    const timeLeft = finalTime - now;
 
-    if (!respuestaEnviada) {
-      const segundos = Math.floor((tiempoRestante % (1000 * 60)) / 1000);
-      const milisegundos = Math.floor((tiempoRestante % 1000) / 100);
+    if (!submittedAnswer) {
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      const tenths = Math.floor((timeLeft % 1000) / 100);
 
-      const contadorElemento = document.getElementById('contador');
-
-      if (segundos < 0) {
-        clearInterval(intervalo);
-        contadorElemento.style.fontSize = '36px';
-        contadorElemento.innerHTML = '¡Fuera de tiempo!';
+      const counterElement = document.getElementById('counter');
+      
+      if (seconds < 10){
+        counterElement.style.color = 'red';
+        counterElement.innerHTML = `
+        <p>Tiempo Bonus: ${seconds}.${tenths}</p>
+      `;
       } else {
-        contadorElemento.innerHTML = `
-          <p>Tiempo: ${segundos}.${milisegundos}</p>
+        counterElement.innerHTML = `
+          <p>Tiempo Bonus: ${seconds}.${tenths}</p>
         `;
+        document.getElementById("tiempoTotal").value = seconds;
+      }
+
+      if (seconds < 0) {
+        clearInterval(interval);
+        counterElement.style.fontSize = '24px';
+        counterElement.innerHTML = 'Tiempo Bonus: 0.0';
       }
     }
   }, 100); // Actualizar cada centésima de segundo
 
-  // Agregar un manejador de eventos al botón "Enviar respuesta"
-  const botonEnviar = document.querySelector('.submit-container input[type="submit"]');
-  botonEnviar.addEventListener('click', function () {
-    respuestaEnviada = true; // Cambiar el estado de respuesta enviada
-    clearInterval(intervalo); // Detener el contador cuando se envía la respuesta
-    // Hacer acciones relacionadas con el envío de la respuesta
+  // manejador de eventos al botón "Enviar respuesta"
+  const sendButton = document.querySelector('.submit-container input[type="submit"]');
+  sendButton.addEventListener('click', function () {
+    submittedAnswer = true;  // Cambiar el estado de respuesta enviada
+    clearInterval(interval); // Detener el counter cuando se envía la respuesta
   });
 </script>
 
@@ -48,6 +55,7 @@
 
 <form action="/answers" method="post">
   <input type="hidden" name="question_id" value="<%= @question.id %>">
+  <input type="hidden" id="tiempoTotal" name="tiempoTotal" value="">
   <div class="options-container">
     <% @question.options.shuffle.each do |option| %>
       <div>
@@ -61,7 +69,7 @@
   </div>
 </form>
 
-  <div id="contador"></div>
+  <div id="counter"></div>
 
 </body>
 </html>

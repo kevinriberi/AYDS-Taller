@@ -8,11 +8,11 @@ class User < ActiveRecord::Base
     validates :username, presence: true, uniqueness: true
     validates :email, presence: true, uniqueness: true
 
-    def update_points (correct, level)
+    def update_points (correct, level, time)
         if correct
-            self.points += 10 * level
+            self.points += 10 * level + self.streak + time
         else
-            self.points -= 4 * level
+            self.points -= 4 * level + time
         end
     end
 
