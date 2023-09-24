@@ -126,9 +126,9 @@ describe User do
       user = User.create(username: 'test_user1', email: 'test1@example.com', password: 'password123')
       initial_points = user.points
 
-      user.update_points(true, 3)
+      user.update_points(true, 3, 42)
 
-      expect(user.points).to eq(initial_points + 30) # 10 * level (3) = 30
+      expect(user.points).to eq(initial_points + 30 + user.streak + 42) # 10 * level (3) = 30, 42 seconds from bonus time
 
       user.destroy
     end
@@ -137,9 +137,9 @@ describe User do
       user = User.create(username: 'test_user2', email: 'test2@example.com', password: 'password123')
       initial_points = user.points
 
-      user.update_points(false, 2)
+      user.update_points(false, 2, 42)
 
-      expect(user.points).to eq(initial_points - 8) # -4 * level (2) = -8
+      expect(user.points).to eq(initial_points - 8 - 42) # -4 * level (2) = -8, 42 seconds from bonus time
 
       user.destroy
     end
