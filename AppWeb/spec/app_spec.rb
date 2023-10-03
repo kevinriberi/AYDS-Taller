@@ -174,7 +174,7 @@ RSpec.describe 'Sinatra App' do
       session = { user_id: user.id }
 
       # Realiza una solicitud POST a la ruta '/answers' con los parámetros necesarios
-      post '/answers', { question_id: question.id, option_id: option.id }, 'rack.session' => session
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10}, 'rack.session' => session
 
       # Verifica si la respuesta es una redirección a la página de inicio
       expect(last_response.redirect?).to be true
@@ -201,7 +201,7 @@ RSpec.describe 'Sinatra App' do
       session = { user_id: user.id }
 
       # Realiza una solicitud POST a la ruta '/answers' con los parámetros necesarios
-      post '/answers', { question_id: question.id, option_id: option.id }, 'rack.session' => session
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10}, 'rack.session' => session
 
       # Verifica si la respuesta es una redirección a la página de inicio
       expect(last_response.redirect?).to be true
@@ -228,7 +228,7 @@ RSpec.describe 'Sinatra App' do
       session = { user_id: user.id }
 
       # Realiza una solicitud POST a la ruta '/answers' con los parámetros necesarios
-      post '/answers', { question_id: question.id, option_id: option.id }, 'rack.session' => session
+      post '/answers', { question_id: question.id, option_id: option.id, time:10}, 'rack.session' => session
 
       # Verifica si la respuesta es una redirección a la página de inicio
       expect(last_response.redirect?).to be true
@@ -255,7 +255,7 @@ RSpec.describe 'Sinatra App' do
       session = { user_id: user.id }
 
       # Realiza una solicitud POST a la ruta '/answers' con los parámetros necesarios
-      post '/answers', { question_id: question.id, option_id: option.id }, 'rack.session' => session
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
 
       # Verifica si la respuesta es una redirección a la página de inicio
       expect(last_response.redirect?).to be true

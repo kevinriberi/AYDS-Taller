@@ -29,7 +29,7 @@
         counterElement.innerHTML = `
           <p>Tiempo Bonus: ${seconds}.${tenths}</p>
         `;
-        document.getElementById("tiempoTotal").value = seconds;
+        document.getElementById("time").value = seconds;
       }
 
       if (seconds < 0) {
@@ -55,7 +55,7 @@
 
 <form action="/answers" method="post">
   <input type="hidden" name="question_id" value="<%= @question.id %>">
-  <input type="hidden" id="tiempoTotal" name="tiempoTotal" value="">
+  <input type="hidden" id="time" name="time" value="">
   <div class="options-container">
     <% @question.options.shuffle.each do |option| %>
       <div>
