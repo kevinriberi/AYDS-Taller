@@ -8,7 +8,7 @@
 <script>
   let submittedAnswer = false; // Variable para rastrear si se envió la respuesta
 
-  const finalTime = new Date().getTime() + 5 * 1000;
+  const finalTime = new Date().getTime() + 60 * 1000;
 
   const interval = setInterval(function () {
     const now = new Date().getTime();
@@ -22,21 +22,20 @@
       
       if (seconds < 10){
         counterElement.style.color = 'red';
-        counterElement.innerHTML = `<p>Tiempo Bonus: ${seconds}.${tenths}</p>`
-        document.getElementById("time").value = seconds;
-        ;
+        counterElement.innerHTML = `
+        <p>Tiempo Bonus: ${seconds}.${tenths}</p>
+      `;
       } else {
         counterElement.innerHTML = `
           <p>Tiempo Bonus: ${seconds}.${tenths}</p>
         `;
         document.getElementById("time").value = seconds;
       }
-      
+
       if (seconds < 0) {
         clearInterval(interval);
         counterElement.style.fontSize = '24px';
         counterElement.innerHTML = 'Tiempo Bonus: 0.0';
-        document.getElementById("time").value = 0;
       }
     }
   }, 100); // Actualizar cada centésima de segundo
@@ -50,42 +49,27 @@
 </script>
 
 </head>
-
 <body>
 
 <h1><p><%= @question.content %></p></h1>
 
-<form action="/answers" method="post" onsubmit="return validateForm();">
+<form action="/answers" method="post">
   <input type="hidden" name="question_id" value="<%= @question.id %>">
   <input type="hidden" id="time" name="time" value="">
   <div class="options-container">
     <% @question.options.shuffle.each do |option| %>
       <div>
-        <input type="radio" name="option_id" value="<%= option.id %>" id="option_<%= option.id %>">
+        <input type="radio" name="option_id" value="<%= option.id %>">
         <label><%= option.content %></label>
       </div>
     <% end %>
   </div>
   <div class="submit-container">
-<!---    <input type="submit" value="Enviar respuesta" id="submitButton"> -->
-    <input type="submit" value="Enviar respuesta" id="submitButton">
+    <input type="submit" value="Enviar respuesta">
   </div>
 </form>
 
-<div id="counter"></div>
-
-<script>
-  function validateForm() {
-    var selectedOption = document.querySelector('input[id^="option_"]:checked');
-    if (!selectedOption) {
-      alert("Por favor, selecciona una opción antes de enviar.");
-      return false; // Evita que el formulario se envíe
-    }
-    return true; // Permite que el formulario se envíe
-  }
-</script>
+  <div id="counter"></div>
 
 </body>
-
 </html>
-

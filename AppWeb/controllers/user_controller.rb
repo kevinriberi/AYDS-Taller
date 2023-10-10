@@ -62,35 +62,4 @@ class UserController < Sinatra::Application
   
     erb :ranking
   end
-
-  get '/history' do
-    # Obtén el rango de fechas de los últimos 7 días
-    end_date = Date.today
-    start_date = 7.days.ago.to_date
-    date_range = (start_date..end_date).to_a.map { |date| date.strftime("%Y-%m-%d") }
-  
-    # Obtén las respuestas de los últimos 7 días para un usuario específico (reemplaza user_id con el ID del usuario)
-    user_id = session[:user_id]
-    respuestas = Answer.where("user_id = ? AND created_at >= ?", user_id, 7.days.ago)
-  
-    # Agrupa las respuestas por día y calcula el puntaje acumulado para cada día
-    datos_grafico = respuestas.group("DATE(created_at)").sum(:points)
-  
-    # Crea un hash vacío para almacenar los datos del gráfico
-    @datos_grafico = []
-  
-    # Llena los valores de puntaje para cada día en el conjunto de datos
-    date_range.each do |fecha|
-      respuesta = datos_grafico.find { |data| data[0] == fecha }
-      if respuesta
-        @datos_grafico << { fecha: fecha.to_date, puntaje: respuesta[1] }
-      else
-        @datos_grafico << { fecha: fecha.to_date, puntaje: 0 }
-      end
-    end
-  
-    erb :history
-  end
-  
-
 end

@@ -1,4 +1,3 @@
-<!-- dashboard.erb -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,20 +12,13 @@
     <span class="streak">Racha: <%= @user.streak %></span>
   </div>
 
-  <div class="user-actions">
-    <div class="ranking-container">
-      <form action="/ranking" method="get">
-        <button type="submit" class="button ranking-button">Ver Ranking</button>
-      </form>
-    </div>
-
-    <!-- Agregar botón para ver historial -->
-    <div class="history-container">
-      <form action="/history" method="get">
-        <button type="submit" class="button history-button">Ver Historial</button>
-      </form>
-    </div>
+<div class="user-actions">
+  <div class="ranking-container">
+    <form action="/ranking" method="get">
+      <button type="submit" class="button ranking-button">Ver Ranking</button>
+    </form>
   </div>
+</div>
 
   <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">
@@ -54,7 +46,9 @@
     <% end %>
   </ul>
 
-  <span>
+  
+
+ <span>
     <% if flash.has?(:success) %>
       <p class="success"><%= flash[:success]%></p>
     <% end %>
