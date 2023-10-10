@@ -11,16 +11,27 @@ class User < ActiveRecord::Base
     def update_points (correct, level, time)
         points = 10 * level + self.streak + time 
         
-        if correct
-            self.points += points
-        else
-            points_before_rest = self.points
-            self.points -= points
-            if self.points < 0
-                self.points = 0
-                points = points_before_rest * -1
+        if !correct 
+            if points > self.points
+                points = self.points * -1
+            else
+                points *= -1
             end
         end
+
+        self.points += points
+        #if correct
+        #    self.points += points
+        #else
+        #    points_before_rest = self.points
+        #    self.points -= points
+        #    if self.points < 0
+        #        self.points = 0
+        #        points = points_before_rest * -1
+        #    else
+        #        points *= -1
+        #    end
+        #end
 
         return points
     end
