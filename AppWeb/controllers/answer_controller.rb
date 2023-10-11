@@ -11,8 +11,9 @@ class AnswerController < Sinatra::Application
     option = Option.find(option_id)
     knowledge = Knowledge.find_by(user_id: user_id, topic_id: question.topic_id)
 
-    points = current_user.update_points(option.correct, question.level, time)
     current_user.update_streak(option.correct)
+    current_user.save
+    points = current_user.update_points(option.correct, question.level, time)
     current_user.save
 
     # Crea una nueva instancia de Answer
@@ -37,4 +38,6 @@ class AnswerController < Sinatra::Application
     answer.save
     redirect '/'
   end
+
+  
 end

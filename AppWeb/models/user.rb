@@ -9,18 +9,13 @@ class User < ActiveRecord::Base
     validates :email, presence: true, uniqueness: true
 
     def update_points (correct, level, time)
-        points = 10 * level + self.streak + time 
-        
         if correct
-            self.points += points
+            points = 10 * level + self.streak + time 
         else
-            points_before_rest = self.points
-            self.points -= points
-            if self.points < 0
-                self.points = 0
-                points = points_before_rest * -1
-            end
+            points = - 4 * level + self.streak - time
         end
+
+        self.points += points
 
         return points
     end
