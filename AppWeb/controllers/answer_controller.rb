@@ -39,5 +39,13 @@ class AnswerController < Sinatra::Application
     redirect '/'
   end
 
+  get '/answers/:date' do
+    @date = Date.parse(params[:date])
+    user_id = session[:user_id]  # Obtén el ID del usuario de la sesión
+    @topics = Topic.all
+    @respuestas = Answer.where(user_id: user_id, created_at: @date.beginning_of_day..@date.end_of_day)
+  
+    erb :answers
+  end
   
 end

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Prelude-Code</title>
+  <link rel="stylesheet" href="/css/answers.css">
+</head>
+<body>
+  <h1>Respuestas en el día <%= @date.strftime("%d-%m-%Y") %></h1>
+
+  <select id="filtro-tema">
+    <option value="todos">Todos los temas</option>
+    <% @topics.each do |topic| %>
+      <option value="<%= topic.name %>"><%= topic.name %></option>
+    <% end %>
+  </select>
+
+  <table id="tabla-respuestas">
+    <thead>
+      <tr>
+        <th>Pregunta</th>
+        <th>Respuesta</th>
+        <th>Puntaje</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @respuestas.each do |respuesta| %>
+        <tr data-tema="<%= respuesta.question.topic.name %>" class="<%= respuesta.option.correct? ? 'correct-answer' : 'incorrect-answer' %>">
+          <td><%= respuesta.question.content %></td>
+          <td class="respuesta"><%= respuesta.option.content %></td>
+          <td class="puntaje"><%= respuesta.points %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <!-- Botón para volver al inicio -->
+  <form action="/history" method="get">
+      <div class="button-container">
+          <button type="submit">Volver al Historial</button>
+      </div>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#filtro-tema').change(function() {
+        var temaSeleccionado = $(this).val();
+        
+        // Oculta todas las filas de la tabla
+        $('#tabla-respuestas tbody tr').hide();
+        
+        if (temaSeleccionado === 'todos') {
+          // Muestra todas las filas si se selecciona "Todos los temas"
+          $('#tabla-respuestas tbody tr').show();
+        } else {
+          // Muestra las filas de la tabla correspondientes al tema seleccionado
+          $('#tabla-respuestas tbody tr[data-tema="' + temaSeleccionado + '"]').show();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
