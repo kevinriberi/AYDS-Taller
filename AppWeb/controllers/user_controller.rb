@@ -63,15 +63,27 @@ class UserController < Sinatra::Application
     erb :ranking
   end
 
-  get '/history' do
-    # Obtén el rango de fechas de los últimos 7 días
+  get '/history/:time_frame' do
+  
+    time_frame = params[:time_frame]
     end_date = Date.today
-    start_date = 7.days.ago.to_date
-    date_range = (start_date..end_date).to_a.map { |date| date.strftime("%Y-%m-%d") }
-
-    # Obtén las respuestas de los últimos 7 días para un usuario específico (reemplaza user_id con el ID del usuario)
     user_id = session[:user_id]
-    respuestas = Answer.where("user_id = ? AND created_at >= ?", user_id, 7.days.ago)
+    case time_frame
+      when 'week'
+        start_date = 7.days.ago.to_date
+        respuestas = Answer.where("user_id = ? AND created_at >= ?", user_id, 7.day.ago)
+        session[:ultimo_valor_seleccionado] = 'week'
+      when 'month'
+        start_date = 1.month.ago.to_date
+        respuestas = Answer.where("user_id = ? AND created_at >= ?", user_id, 1.month.ago)
+        session[:ultimo_valor_seleccionado] = 'month'
+      when '3month'
+        start_date = 3.month.ago.to_date
+        respuestas = Answer.where("user_id = ? AND created_at >= ?", user_id, 3.month.ago)
+        session[:ultimo_valor_seleccionado] = '3month'
+    end
+
+    date_range = (start_date..end_date).to_a.map { |date| date.strftime("%Y-%m-%d") }
 
     # Agrupa las respuestas por día y calcula el puntaje acumulado para cada día
     datos_grafico = respuestas.group("DATE(created_at)").sum(:points)

@@ -19,8 +19,11 @@
       </form>
     </div>
 
+    <!-- Obtén el valor de la sesión que deseas utilizar para la redirección -->
+    <% ultimo_valor_seleccionado = session[:ultimo_valor_seleccionado] || 'week' %>
+
     <div class="history-container">
-      <form action="/history" method="get">
+      <form action="<%= "/history/#{ultimo_valor_seleccionado}" %>" method="get">
         <button type="submit" class="button history-button">Ver Historial</button>
       </form>
     </div>

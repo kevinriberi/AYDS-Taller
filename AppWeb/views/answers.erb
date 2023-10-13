@@ -8,12 +8,14 @@
 <body>
   <h1>Respuestas en el día <%= @date.strftime("%d-%m-%Y") %></h1>
 
-  <select id="filtro-tema">
-    <option value="todos">Todos los temas</option>
-    <% @topics.each do |topic| %>
-      <option value="<%= topic.name %>"><%= topic.name %></option>
-    <% end %>
-  </select>
+  <div class="filter-container">
+      <select id="filtro-tema" class="custom-select">
+          <option value="todos">Todos los temas</option>
+          <% @topics.each do |topic| %>
+              <option value="<%= topic.name %>"><%= topic.name %></option>
+          <% end %>
+      </select>
+  </div>
 
   <table id="tabla-respuestas">
     <thead>
@@ -34,12 +36,15 @@
     </tbody>
   </table>
 
-  <!-- Botón para volver al inicio -->
-  <form action="/history" method="get">
-      <div class="button-container">
-          <button type="submit">Volver al Historial</button>
-      </div>
-  </form>
+<!-- Obtén el valor de la sesión que deseas utilizar para la redirección -->
+<% ultimo_valor_seleccionado = session[:ultimo_valor_seleccionado] || 'week' %>
+
+<!-- Botón para volver al historial utilizando el valor de la sesión -->
+<form action="<%= "/history/#{ultimo_valor_seleccionado}" %>" method="get">
+    <div class="button-container">
+        <button type="submit">Volver al Historial</button>
+    </div>
+</form>
 
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>

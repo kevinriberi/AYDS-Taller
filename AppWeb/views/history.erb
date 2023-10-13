@@ -10,6 +10,49 @@
 <body>
     <h1>Historial de Puntos</h1>
 
+    <!-- Agrega el select para seleccionar el período -->
+    <select id="selector-periodo">
+        <option value="/history/week">Última semana</option>
+        <option value="/history/month">Último mes</option>
+        <option value="/history/3month">Últimos 3 meses</option>
+    </select>
+
+    <script>
+        // Espera a que la página se cargue por completo
+        document.addEventListener('DOMContentLoaded', function () {
+            // Comprueba si la ruta actual coincide con el valor del botón de selección
+            var currentPath = window.location.pathname;
+            var selectedOption = document.getElementById('selector-periodo').value;
+
+            if (currentPath !== selectedOption) {
+                // Redirige automáticamente a la página correspondiente al botón de selección
+                window.location.href = selectedOption;
+            }
+        });
+
+        // Evento para redirigir automáticamente cuando se cambia la selección
+        document.getElementById('selector-periodo').addEventListener('change', function () {
+            var selectedOption = this.value;
+            window.location.href = selectedOption;
+        });
+
+        // Función para guardar y restaurar el valor seleccionado en el almacenamiento local
+        var selector = document.getElementById('selector-periodo');
+
+        // Intenta recuperar el último valor seleccionado
+        var ultimoValorSeleccionado = localStorage.getItem('ultimoValorSeleccionado');
+
+        if (ultimoValorSeleccionado) {
+            selector.value = ultimoValorSeleccionado;
+        }
+
+        // Manejador de evento para guardar el valor seleccionado
+        selector.addEventListener('change', function () {
+            var selectedOption = this.value;
+            localStorage.setItem('ultimoValorSeleccionado', selectedOption);
+        });
+    </script>
+
     <!-- Elemento HTML donde se dibujará el gráfico -->
     <canvas id="grafico"></canvas>
 
@@ -20,7 +63,6 @@
         </div>
     </form>
 
-    <!-- Script para dibujar el gráfico -->
     <script>
         // Datos dinámicos para el gráfico
         var data = {
