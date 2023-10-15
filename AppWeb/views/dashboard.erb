@@ -25,7 +25,7 @@
     <button type="submit" class="button logout-button">Cerrar sesión</button>
   </form>
   <p>¿Sobre qué tema quieres jugar hoy?</p>
-  
+
   <!-- Generar enlaces a cada tema -->
   <ul class="topics-list">
     <% @topics.each do |topic| %>
@@ -46,15 +46,26 @@
     <% end %>
   </ul>
 
-  
-
- <span>
+  <!-- Debe dar permisos de reproduccion automatica en el navegador -->
+  <span>
     <% if flash.has?(:success) %>
       <p class="success"><%= flash[:success]%></p>
+      <audio id="audio" >
+        <source src=<%= flash[:sound] %> type="audio/mpeg">
+      </audio>
     <% end %>
     <% if flash.has?(:error) %>
       <p class="error"><%= flash[:error]%></p>
+      <audio id="audio" >
+        <source src=<%= flash[:sound] %> type="audio/mpeg">
+      </audio>
     <% end %>
   </span>
+
+  <script>
+    var audio = document.getElementById("audio");
+    audio.play();
+  </script>
+
 </body>
 </html>

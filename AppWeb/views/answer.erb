@@ -4,55 +4,8 @@
   <meta charset="UTF-8">
   <title>Prelude-Code</title>
   <link rel="stylesheet" href="/css/answer.css">
-
-<script>
-  let submittedAnswer = false; // Variable para rastrear si se envió la respuesta
-
-  const finalTime = new Date().getTime() + 5 * 1000;
-
-  const interval = setInterval(function () {
-    const now = new Date().getTime();
-    const timeLeft = finalTime - now;
-
-    if (!submittedAnswer) {
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      const tenths = Math.floor((timeLeft % 1000) / 100);
-
-      const counterElement = document.getElementById('counter');
-      
-      if (seconds < 10){
-        counterElement.style.color = 'red';
-        counterElement.innerHTML = `<p>Tiempo Bonus: ${seconds}.${tenths}</p>`
-        document.getElementById("time").value = seconds;
-        ;
-      } else {
-        counterElement.innerHTML = `
-          <p>Tiempo Bonus: ${seconds}.${tenths}</p>
-        `;
-        document.getElementById("time").value = seconds;
-      }
-      
-      if (seconds < 0) {
-        clearInterval(interval);
-        counterElement.style.fontSize = '24px';
-        counterElement.innerHTML = 'Tiempo Bonus: 0.0';
-        document.getElementById("time").value = 0;
-      }
-    }
-  }, 100); // Actualizar cada centésima de segundo
-
-  // manejador de eventos al botón "Enviar respuesta"
-  const sendButton = document.querySelector('.submit-container input[type="submit"]');
-  sendButton.addEventListener('click', function () {
-    submittedAnswer = true;  // Cambiar el estado de respuesta enviada
-    clearInterval(interval); // Detener el counter cuando se envía la respuesta
-  });
-</script>
-
 </head>
-
 <body>
-
 <h1><p><%= @question.content %></p></h1>
 
 <form action="/answers" method="post" onsubmit="return validateForm();">
@@ -74,18 +27,8 @@
 
 <div id="counter"></div>
 
-<script>
-  function validateForm() {
-    var selectedOption = document.querySelector('input[id^="option_"]:checked');
-    if (!selectedOption) {
-      alert("Por favor, selecciona una opción antes de enviar.");
-      return false; // Evita que el formulario se envíe
-    }
-    return true; // Permite que el formulario se envíe
-  }
-</script>
+<script src="/javaScript/answer.js"></script>
 
 </body>
-
 </html>
 
