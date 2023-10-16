@@ -60,7 +60,9 @@
             </span>
           </div>
           <span class="topic-level"> ¡Tema completo!</span>
-          <img src=<%= flash[:gif] %> alt="Papelitos volando" class="confetti" >
+          <% if flash[:gif] && flash[:gif].strip != "" %>
+            <img src=<%= flash[:gif] %> alt="Papelitos volando" class="confetti" >
+          <% end %>
         <% end %>
         </div>
       </li>
