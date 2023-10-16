@@ -176,4 +176,13 @@ p.error {
   }
 }
 
+/* Estilos para la imagen confetti */
+.confetti {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; /* Ocupa el ancho completo de la ventana */
+  height: 300%; /* Ocupa la altura completa de la ventana */
+  z-index: -10; /* Asegura que esté atras de otros elementos */
+}
 
