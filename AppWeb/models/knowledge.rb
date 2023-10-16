@@ -12,7 +12,7 @@ class Knowledge < ActiveRecord::Base
     def update_by_correct_answer
       self.correct_answers_count ||= 0
       level_up_threshold = topic.send("amount_questions_L#{level}".to_sym)
-  
+      
       self.correct_answers_count += 1
       if self.correct_answers_count >= level_up_threshold
         self.level += 1
@@ -21,6 +21,16 @@ class Knowledge < ActiveRecord::Base
       else
         false
       end
+    end
+    
+    def percentage_of_correct_answers
+      if self.is_finished
+        return 100
+      end
+      level_up_threshold = topic.send("amount_questions_L#{level}".to_sym)
+      rate = self.correct_answers_count.to_f / level_up_threshold
+      percentage = (rate * 100).round(1) # Redondear a 1 decimales
+      return percentage
     end
 
     # metodo que corrobora si se ha completado el tema en su totalidad

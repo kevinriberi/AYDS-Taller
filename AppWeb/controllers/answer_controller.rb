@@ -22,18 +22,24 @@ class AnswerController < Sinatra::Application
     
 
     if option.correct 
-        flash[:success] = '¡Respuesta correcta!'
-        if (knowledge.update_by_correct_answer)
-          if (knowledge.is_finished)
-            flash[:success] = '¡Felicitaciones! ¡Completaste el tema!'
-          else
-            flash[:success] = '¡Felicitaciones! ¡Pasaste al siguiente nivel de dificultad!'
+      flash[:success] = '¡Respuesta correcta!'
+      flash[:sound] = "/sounds/sound_correct_answer.mp3"
+      flash[:gif] = ""
+      if (knowledge.update_by_correct_answer)
+        if (knowledge.is_finished)
+          flash[:success] = '¡Felicitaciones! ¡Completaste el tema!'
+          flash[:sound] = "/sounds/sound_all_levels_clear.mp3"
+          flash[:gif] = "/images/confetti.gif"
+        else
+          flash[:success] = '¡Felicitaciones! ¡Pasaste al siguiente nivel de dificultad!'
+          flash[:sound] = "/sounds/sound_level_up.mp3"
           end
         end
         knowledge.save
-    else
-      flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
-    end
+      else
+        flash[:error] = 'Respuesta incorrecta. ¡Vamos que en la próxima sale!'
+        flash[:sound] = "/sounds/sound_error.mp3"
+      end
         
     answer.save
     redirect '/'
