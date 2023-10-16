@@ -100,13 +100,17 @@ a.topic-button:hover {
   margin-top: 20px;
 }
 
+.history-container {
+  max-width: 100%;
+  margin-top: 20px;
+}
 
 .user-info span.username {
   font-weight: bold;
 }
 
 .user-info span.points {
-  color: #555;
+  color: #333;
   margin-top: 5px; /* Ajusta el margen superior para separar el nombre de usuario de los puntos */
 }
 
@@ -133,6 +137,17 @@ p.error {
 .ranking-button {
   position: absolute;
   margin-top: -20px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.history-button {
+  position: absolute;
+  margin-top: 0px;
   left: 20px;
   padding: 10px 20px;
   background-color: #333;

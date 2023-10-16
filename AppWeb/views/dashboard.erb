@@ -12,13 +12,22 @@
     <span class="streak">Racha: <%= @user.streak %></span>
   </div>
 
-<div class="user-actions">
-  <div class="ranking-container">
-    <form action="/ranking" method="get">
-      <button type="submit" class="button ranking-button">Ver Ranking</button>
-    </form>
+  <div class="user-actions">
+    <div class="ranking-container">
+      <form action="/ranking" method="get">
+        <button type="submit" class="button ranking-button">Ver Ranking</button>
+      </form>
+    </div>
+
+    <!-- Obtén el valor de la sesión que deseas utilizar para la redirección -->
+    <% ultimo_valor_seleccionado = session[:ultimo_valor_seleccionado] || 'week' %>
+
+    <div class="history-container">
+      <form action="<%= "/history/#{ultimo_valor_seleccionado}" %>" method="get">
+        <button type="submit" class="button history-button">Ver Historial</button>
+      </form>
+    </div>
   </div>
-</div>
 
   <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">
