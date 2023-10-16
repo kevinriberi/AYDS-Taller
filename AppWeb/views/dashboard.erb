@@ -26,6 +26,7 @@
   </form>
   <p>¿Sobre qué tema quieres jugar hoy?</p>
 
+
   <!-- Generar enlaces a cada tema -->
   <ul class="topics-list">
     <% @topics.each do |topic| %>
@@ -34,11 +35,21 @@
         <div class="topic-wrapper">
         <% if knowledge.level < 4 %>
           <a href="/topics/<%= topic.id %>" class="topic-button"><%= topic.name %></a>
+          <div class="progress-bar">
+            <span class="progress" data-progress="<%= knowledge.percentage_of_correct_answers %>">
+              <span style="--percentage: 0%;">0%</span>
+            </span>
+          </div>
           <% if knowledge %>
               <span class="topic-level">Nivel: <%= knowledge.level %></span>
           <% end %>
         <% else %>
           <a class="topic-button"><%= topic.name %></a>
+          <div class="progress-bar">
+            <span class="progress" data-progress="<%= knowledge.percentage_of_correct_answers %>">
+              <span style="--percentage: 0%;">0%</span>
+            </span>
+          </div>
           <span class="topic-level"> ¡Tema completo!</span>
         <% end %>
         </div>
@@ -61,6 +72,8 @@
       </audio>
     <% end %>
   </span>
+
+  <script src="/javaScript/dashboard.js"></script>
 
   <script>
     var audio = document.getElementById("audio");

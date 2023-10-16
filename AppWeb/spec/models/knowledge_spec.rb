@@ -54,7 +54,17 @@ describe Knowledge do
       expect(knowledge.level).to eq(2)  # Level should increase to 2
       expect(knowledge.correct_answers_count).to eq(0)  # Correct answers count should reset
 
-      
+      knowledge.destroy
+      topic.destroy
+      user.destroy
+    end
+    
+    it "calculates the correct percentage for a given level" do
+      user = User.create(username: "Nano", email: "nano@example.com", password: "password")
+      topic = Topic.create(name: "History", amount_questions_L2: 3)
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 1, level: 2)
+      expect(knowledge.percentage_of_correct_answers).to eq(33.3)
+
       knowledge.destroy
       topic.destroy
       user.destroy

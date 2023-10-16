@@ -55,6 +55,8 @@ ul.topics-list {
 .topic-button,
 a.topic-button {
   display: inline-block;
+  width: 80px;
+  height: 20px;
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
@@ -67,7 +69,6 @@ a.topic-button {
 a.topic-button:hover {
   background-color: #555;
 }
-
 
 /* Estilos para el botón de cerrar sesión */
 .logout-button {
@@ -143,3 +144,36 @@ p.error {
 .ranking-button:hover {
   background-color: #555;
 }
+
+.progress-bar {
+  width: 100%;
+  background-color: #aaa;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.progress {
+  display: block;
+  width: var(--percentage, 0%);
+  height: 20px;
+  background-color: #4CAF50; 
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+}
+
+.animate-progress {
+  animation: fillProgress 2s ease-in-out;
+}
+
+@keyframes fillProgress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--percentage, 0%);
+  }
+}
+
+
