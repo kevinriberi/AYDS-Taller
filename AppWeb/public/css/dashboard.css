@@ -55,6 +55,8 @@ ul.topics-list {
 .topic-button,
 a.topic-button {
   display: inline-block;
+  width: 80px;
+  height: 20px;
   padding: 10px 20px;
   background-color: #333;
   color: #fff;
@@ -67,7 +69,6 @@ a.topic-button {
 a.topic-button:hover {
   background-color: #555;
 }
-
 
 /* Estilos para el botón de cerrar sesión */
 .logout-button {
@@ -99,13 +100,17 @@ a.topic-button:hover {
   margin-top: 20px;
 }
 
+.history-container {
+  max-width: 100%;
+  margin-top: 20px;
+}
 
 .user-info span.username {
   font-weight: bold;
 }
 
 .user-info span.points {
-  color: #555;
+  color: #333;
   margin-top: 5px; /* Ajusta el margen superior para separar el nombre de usuario de los puntos */
 }
 
@@ -140,6 +145,59 @@ p.error {
   cursor: pointer;
 }
 
+.history-button {
+  position: absolute;
+  margin-top: 0px;
+  left: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 .ranking-button:hover {
   background-color: #555;
 }
+
+.progress-bar {
+  width: 100%;
+  background-color: #aaa;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.progress {
+  display: block;
+  width: var(--percentage, 0%);
+  height: 20px;
+  background-color: #4CAF50; 
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+}
+
+.animate-progress {
+  animation: fillProgress 2s ease-in-out;
+}
+
+@keyframes fillProgress {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--percentage, 0%);
+  }
+}
+
+/* Estilos para la imagen confetti */
+.confetti {
+  position: absolute;
+  top: 0; 
+  left: 0;
+  width: 100%; /* Ocupa el ancho completo de la ventana */
+  height: 300%; /* Ocupa la altura completa de la ventana */
+  z-index: -10; /* Asegura que esté atras de otros elementos */
+}
+

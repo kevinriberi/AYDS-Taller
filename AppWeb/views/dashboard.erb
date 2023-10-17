@@ -12,20 +12,30 @@
     <span class="streak">Racha: <%= @user.streak %></span>
   </div>
 
-<div class="user-actions">
-  <div class="ranking-container">
-    <form action="/ranking" method="get">
-      <button type="submit" class="button ranking-button">Ver Ranking</button>
-    </form>
+  <div class="user-actions">
+    <div class="ranking-container">
+      <form action="/ranking" method="get">
+        <button type="submit" class="button ranking-button">Ver Ranking</button>
+      </form>
+    </div>
+
+    <!-- Obtén el valor de la sesión que deseas utilizar para la redirección -->
+    <% ultimo_valor_seleccionado = session[:ultimo_valor_seleccionado] || 'week' %>
+
+    <div class="history-container">
+      <form action="<%= "/history/#{ultimo_valor_seleccionado}" %>" method="get">
+        <button type="submit" class="button history-button">Ver Historial</button>
+      </form>
+    </div>
   </div>
-</div>
 
   <h1>¡Hola, <%= @user.username %>!</h1>
   <form action="/logout" method="post">
     <button type="submit" class="button logout-button">Cerrar sesión</button>
   </form>
   <p>¿Sobre qué tema quieres jugar hoy?</p>
-  
+
+
   <!-- Generar enlaces a cada tema -->
   <ul class="topics-list">
     <% @topics.each do |topic| %>
@@ -34,27 +44,53 @@
         <div class="topic-wrapper">
         <% if knowledge.level < 4 %>
           <a href="/topics/<%= topic.id %>" class="topic-button"><%= topic.name %></a>
+          <div class="progress-bar">
+            <span class="progress" data-progress="<%= knowledge.percentage_of_correct_answers %>">
+              <span style="--percentage: 0%;">0%</span>
+            </span>
+          </div>
           <% if knowledge %>
               <span class="topic-level">Nivel: <%= knowledge.level %></span>
           <% end %>
         <% else %>
           <a class="topic-button"><%= topic.name %></a>
+          <div class="progress-bar">
+            <span class="progress" data-progress="<%= knowledge.percentage_of_correct_answers %>">
+              <span style="--percentage: 0%;">0%</span>
+            </span>
+          </div>
           <span class="topic-level"> ¡Tema completo!</span>
+          <% if flash[:gif] && flash[:gif].strip != "" %>
+            <img src=<%= flash[:gif] %> alt="Papelitos volando" class="confetti" >
+          <% end %>
         <% end %>
         </div>
       </li>
     <% end %>
   </ul>
 
-  
-
- <span>
+  <!-- Debe dar permisos de reproduccion automatica en el navegador -->
+  <span>
     <% if flash.has?(:success) %>
       <p class="success"><%= flash[:success]%></p>
+      <audio id="audio" >
+        <source src=<%= flash[:sound] %> type="audio/mpeg">
+      </audio>
     <% end %>
     <% if flash.has?(:error) %>
       <p class="error"><%= flash[:error]%></p>
+      <audio id="audio" >
+        <source src=<%= flash[:sound] %> type="audio/mpeg">
+      </audio>
     <% end %>
   </span>
+
+  <script src="/javaScript/dashboard.js"></script>
+
+  <script>
+    var audio = document.getElementById("audio");
+    audio.play();
+  </script>
+
 </body>
 </html>

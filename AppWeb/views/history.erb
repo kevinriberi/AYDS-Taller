@@ -1,0 +1,109 @@
+<!-- Vista history.erb -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Historial</title>
+    <!-- Incluye la biblioteca Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <h1>Historial de Puntos</h1>
+
+    <!-- Agrega el select para seleccionar el período -->
+    <select id="selector-periodo">
+        <option value="/history/week">Última semana</option>
+        <option value="/history/month">Último mes</option>
+        <option value="/history/3month">Últimos 3 meses</option>
+    </select>
+
+    <script>
+        // Espera a que la página se cargue por completo
+        document.addEventListener('DOMContentLoaded', function () {
+            // Comprueba si la ruta actual coincide con el valor del botón de selección
+            var currentPath = window.location.pathname;
+            var selectedOption = document.getElementById('selector-periodo').value;
+
+            if (currentPath !== selectedOption) {
+                // Redirige automáticamente a la página correspondiente al botón de selección
+                window.location.href = selectedOption;
+            }
+        });
+
+        // Evento para redirigir automáticamente cuando se cambia la selección
+        document.getElementById('selector-periodo').addEventListener('change', function () {
+            var selectedOption = this.value;
+            window.location.href = selectedOption;
+        });
+
+        // Función para guardar y restaurar el valor seleccionado en el almacenamiento local
+        var selector = document.getElementById('selector-periodo');
+
+        // Intenta recuperar el último valor seleccionado
+        var ultimoValorSeleccionado = localStorage.getItem('ultimoValorSeleccionado');
+
+        if (ultimoValorSeleccionado) {
+            selector.value = ultimoValorSeleccionado;
+        }
+
+        // Manejador de evento para guardar el valor seleccionado
+        selector.addEventListener('change', function () {
+            var selectedOption = this.value;
+            localStorage.setItem('ultimoValorSeleccionado', selectedOption);
+        });
+    </script>
+
+    <!-- Elemento HTML donde se dibujará el gráfico -->
+    <canvas id="grafico"></canvas>
+
+    <!-- Botón para volver al inicio -->
+    <form action="/" method="get">
+        <div class="button-container">
+            <button type="submit">Volver al Inicio</button>
+        </div>
+    </form>
+
+    <script>
+        // Datos dinámicos para el gráfico
+        var data = {
+            labels: [<% @datos_grafico.each do |data| %>"<%= (data[:fecha]).strftime("%d-%m-%Y") %>", <% end %>],
+            datasets: [{
+                label: "Puntos",
+                data: [<% @datos_grafico.each do |data| %><%= data[:puntaje] %>, <% end %>],
+                backgroundColor: function(context) {
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value >= 0 ? 'rgba(0, 190, 0, 0.2)' : 'rgba(255, 0, 0, 0.2)'; // Color verde para positivos y rojo para negativos
+                },
+                borderColor: function(context) {
+                    var index = context.dataIndex;
+                    var value = context.dataset.data[index];
+                    return value >= 0 ? 'rgba(0, 190, 0, 1)' : 'rgba(255, 0, 0, 1)'; // Borde verde para positivos y rojo para negativos
+                },
+                borderWidth: 1 // Ancho del borde de las barras
+            }]
+        };
+    
+        var ctx = document.getElementById('grafico').getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: data,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+                onClick: function(event, elements) {
+                    if (elements[0]) {
+                        var index = elements[0].index; // Índice del elemento en el gráfico
+                        var fecha = myChart.data.labels[index]; // Obtiene la fecha haciendo referencia a los datos del gráfico
+                        window.location.href = '/answers/' + fecha; // Realiza la redirección
+                    }
+                }
+            }
+        });
+    </script>
+
+</body>
+</html>

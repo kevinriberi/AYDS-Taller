@@ -135,11 +135,12 @@ describe User do
 
     it 'decreases points when answer is incorrect' do
       user = User.create(username: 'test_user2', email: 'test2@example.com', password: 'password123')
-      initial_points = user.points
+      initial_points = 10000
+      user.points = initial_points
 
       user.update_points(false, 2, 42)
 
-      expect(user.points).to eq(initial_points - 8 - 42) # -4 * level (2) = -8, 42 seconds from bonus time
+      expect(user.points).to eq(initial_points - 20 - 42) # -10 * level (2) = -20, 42 seconds from bonus time
 
       user.destroy
     end
