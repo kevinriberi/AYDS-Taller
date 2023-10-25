@@ -138,9 +138,10 @@ describe User do
       initial_points = 10000
       user.points = initial_points
 
+      user.update_streak(false)
       user.update_points(false, 2, 42)
 
-      expect(user.points).to eq(initial_points - 20 - 42) # -10 * level (2) = -20, 42 seconds from bonus time
+      expect(user.points).to eq(initial_points - 51) # -4 * 2 - 1 - 42 = 51
 
       user.destroy
     end

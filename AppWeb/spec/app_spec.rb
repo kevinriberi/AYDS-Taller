@@ -30,6 +30,17 @@ RSpec.describe 'Sinatra App' do
       get '/ranking' # Accede a la ruta '/register' 
       expect(last_response.status).to eq(200) # Verifica el código de respuesta HTTP
     end
+
+    it 'se accede a la ruta del ranking desde el dashboard' do
+      user = User.create(username: 'test_user10', email: 'testttttt@example.com', password_digest: 'password123')
+      session = { user_id: user.id, from_dashboard: true } 
+
+      get '/ranking', {}, 'rack.session' => session 
+
+      expect(last_response).to be_ok
+      
+      user.destroy
+    end
   end
 
   context 'probando la ruta /topics/:id' do
@@ -367,7 +378,59 @@ RSpec.describe 'Sinatra App' do
     end
   end
 
+  context 'GET /answers/:date' do
+    it 'returns a 200 OK status' do
 
+      # Crear un usuario de prueba y obtener su ID
+      user = User.create(username: 'test_user10', email: 'testttttt@example.com', password_digest: 'password123')
+      session = { user_id: user.id } 
 
+      date = Date.today.strftime('%Y-%m-%d') # Obtén la fecha en el formato esperado (asegúrate de que coincida con el formato que espera tu ruta)
+
+      get "/answers/#{date}", {}, 'rack.session' => session
+
+      expect(last_response).to be_ok
+
+      user.destroy
+    end
+  end
+
+  context 'GET /history/:time_frame' do
+    it 'returns a 200 OK status with a period of a week' do
+      # Crear un usuario de prueba y obtener su ID
+      user = User.create(username: 'test_user10', email: 'testttttt@example.com', password_digest: 'password123')
+      session = { user_id: user.id } 
+
+      get '/history/week', {}, 'rack.session' => session 
+
+      expect(last_response).to be_ok
+
+      user.destroy
+    end
+
+    it 'returns a 200 OK status with a period of a month' do
+      # Crear un usuario de prueba y obtener su ID
+      user = User.create(username: 'test_user10', email: 'testttttt@example.com', password_digest: 'password123')
+      session = { user_id: user.id } 
+
+      get '/history/month', {}, 'rack.session' => session 
+
+      expect(last_response).to be_ok
+
+      user.destroy
+    end
+
+    it 'returns a 200 OK status with a period of 3 months' do
+      # Crear un usuario de prueba y obtener su ID
+      user = User.create(username: 'test_user10', email: 'testttttt@example.com', password_digest: 'password123')
+      session = { user_id: user.id } 
+
+      get '/history/3month', {}, 'rack.session' => session 
+
+      expect(last_response).to be_ok
+
+      user.destroy
+    end
+  end
 
 end

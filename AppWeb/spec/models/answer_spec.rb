@@ -55,7 +55,6 @@ describe Answer do
         expect(answer).not_to be_valid
     end
 
-
     Knowledge.destroy_all
     option_q1.destroy
     option_q2.destroy
