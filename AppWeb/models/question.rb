@@ -4,8 +4,8 @@ class Question < ActiveRecord::Base
     has_many :answers
     has_many :options
 
-    validates :content, presence: true, uniqueness: true
-    validates :level, presence: true, inclusion: { in: 1..3 }
+    validates :content, :presence => true, :uniqueness => true
+    validates :level, :presence => true, :inclusion => { :in => 1..3 }
     validate :valid_topic_id
 
     private

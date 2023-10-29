@@ -1,0 +1,10 @@
+Inspecting 56 files
+........................................W...............
+
+Offenses:
+
+models/answer.rb:57:5: W: Lint/IneffectiveAccessModifier: private (on line 19) does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+    def self.get_unanswered_questions(session, topic_id, level)
+    ^^^
+
+56 files inspected, 1 offense detected

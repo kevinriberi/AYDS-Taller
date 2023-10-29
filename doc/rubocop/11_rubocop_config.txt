@@ -1,0 +1,12 @@
+Phase 1 of 2: run Layout/LineLength cop
+Inspecting 56 files
+.......C...............................C........CCCCCCC.
+
+56 files inspected, 156 offenses detected, 156 offenses auto-correctable
+Created .rubocop_todo.yml.
+Phase 2 of 2: run all cops
+Inspecting 56 files
+CCCCCCCCCCCWWCWWCCCCCCCCCCCCCCCCCCCCCCCWWCCCCCCWCCCCCCWC
+
+56 files inspected, 1953 offenses detected, 1762 offenses auto-correctable
+Created .rubocop_todo.yml.

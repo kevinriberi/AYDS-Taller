@@ -2,7 +2,7 @@ class Option < ActiveRecord::Base
     
     belongs_to :question
 
-    validates :content, presence: true 
+    validates :content, :presence => true 
     validate :valid_question_id
 
     private

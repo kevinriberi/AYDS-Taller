@@ -5,9 +5,9 @@ class Answer < ActiveRecord::Base
     belongs_to :option
 
     
-    validates :user_id, presence: true
-    validates :question_id, presence: true
-    validates :option_id, presence: true
+    validates :user_id, :presence => true
+    validates :question_id, :presence => true
+    validates :option_id, :presence => true
 
     validate :valid_user_id
     validate :valid_question_id
@@ -45,11 +45,19 @@ class Answer < ActiveRecord::Base
     def matching_user_level_in_topic
         if question.present?
             topic = question.topic_id
-            knowledge = Knowledge.find_by(user_id: user_id, topic_id: topic)
+            knowledge = Knowledge.find_by(:user_id => user_id, :topic_id => topic)
     
             if knowledge.nil? || question.level != knowledge.level
                 errors.add(:question, "must have the same level as the user's level in the topic")
             end
         end
+    end
+    
+    # Metodo para obtener las preguntas no respondidas por el usuario en un tema y nivel especificos
+    def self.get_unanswered_questions(session, topic_id, level)
+        user_id = session[:user_id]
+        user = User.find(user_id)
+        answered_questions = user.answers.joins(:option).where(:options => { :correct => true }).pluck(:question_id)
+        Question.where(:topic_id => topic_id, :level => level).where.not(:id => answered_questions).order("RANDOM()")
     end
 end

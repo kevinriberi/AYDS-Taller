@@ -1,0 +1,13 @@
+Inspecting 56 files
+.......................................C................
+
+Offenses:
+
+db/seeds.rb:226:257: C: Layout/LineLength: Line is too long. [262/256]
+option2 = Option.create(:content => "El ciclo while se utiliza cuando se conoce de antemano el número de veces que se repetirá el bloque de código, mientras que el ciclo for se utiliza cuando no se conoce el número de repeticiones.", :question_id => question.id)
+                                                                                                                                                                                                                                                                ^^^^^^
+db/seeds.rb:227:257: C: Layout/LineLength: Line is too long. [261/256]
+option3 = Option.create(:content => "El ciclo while se utiliza para repetir un bloque de código mientras se cumple una condición, mientras que el ciclo for se utiliza para repetir un bloque de código un número específico de veces.", :question_id => question.id)
+                                                                                                                                                                                                                                                                ^^^^^
+
+56 files inspected, 2 offenses detected, 2 offenses auto-correctable

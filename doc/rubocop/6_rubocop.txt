@@ -1,0 +1,89 @@
+Inspecting 56 files
+.....C.WC...............................W...............
+
+Offenses:
+
+controllers/history_controller.rb:2:1: C: Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body beginning.
+controllers/history_controller.rb:8:7: C: Layout/CaseIndentation: Indent when as deep as case.
+      when 'week'
+      ^^^^
+controllers/history_controller.rb:12:7: C: Layout/CaseIndentation: Indent when as deep as case.
+      when 'month'
+      ^^^^
+controllers/history_controller.rb:16:7: C: Layout/CaseIndentation: Indent when as deep as case.
+      when '3month'
+      ^^^^
+controllers/history_controller.rb:24:34: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Agrupa las respuestas por día y calcula el puntaje acumulado para cada día
+                                 ^
+controllers/history_controller.rb:27:23: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Crea un hash vacío para almacenar los datos del gráfico
+                      ^
+controllers/history_controller.rb:30:47: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Llena los valores de puntaje para cada día en el conjunto de datos
+                                              ^
+controllers/history_controller.rb:33:7: C: Style/ConditionalAssignment: Use the return of the conditional for variable assignment and comparison.
+      if respuesta ...
+      ^^^^^^^^^^^^
+controllers/history_controller.rb:41:1: C: Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body end.
+controllers/history_controller.rb:46:39: C: Style/AsciiComments: Use only ascii symbols in comments.
+    user_id = session[:user_id]  # Obtén el ID del usuario de la sesión
+                                      ^
+controllers/question_controller.rb:4:1: C: Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body beginning.
+controllers/question_controller.rb:7:1: C: Layout/EmptyLinesAroundBlockBody: Extra empty line detected at block body beginning.
+controllers/question_controller.rb:11:35: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Verifica si el topic_id es válido (por ejemplo, existe en la base de datos)
+                                  ^
+controllers/question_controller.rb:57:135: C: Layout/SpaceInsideParens: Space inside parentheses detected.
+    answer = Answer.create(:user_id => user_id, :question_id => question_id, :option_id => option_id, :time => time, :points => points )
+                                                                                                                                      ^
+controllers/question_controller.rb:63:10: C: Style/ParenthesesAroundCondition: Don't use parentheses around the condition of an if.
+      if (knowledge.update_by_correct_answer)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+controllers/question_controller.rb:63:10: C: Style/RedundantParentheses: Don't use parentheses around a method call.
+      if (knowledge.update_by_correct_answer)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+controllers/question_controller.rb:64:12: C: Style/ParenthesesAroundCondition: Don't use parentheses around the condition of an if.
+        if (knowledge.is_finished)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+controllers/question_controller.rb:64:12: C: Style/RedundantParentheses: Don't use parentheses around a method call.
+        if (knowledge.is_finished)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+controllers/question_controller.rb:71:11: W: Layout/EndAlignment: end at 71, 10 is not aligned with if at 64, 8.
+          end
+          ^^^
+controllers/question_controller.rb:72:9: W: Layout/EndAlignment: end at 72, 8 is not aligned with if at 63, 6.
+        end
+        ^^^
+controllers/question_controller.rb:73:9: C: Layout/IndentationConsistency: Inconsistent indentation detected.
+        knowledge.save
+        ^^^^^^^^^^^^^^
+controllers/question_controller.rb:74:7: C: Layout/ElseAlignment: Align else with if.
+      else
+      ^^^^
+controllers/question_controller.rb:77:7: W: Layout/EndAlignment: end at 77, 6 is not aligned with if at 59, 4.
+      end
+      ^^^
+controllers/ranking_controller.rb:4:1: C: Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body beginning.
+controllers/ranking_controller.rb:6:58: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Verifica si el usuario proviene del dashboard o está accediendo directamente
+                                                         ^
+controllers/ranking_controller.rb:8:21: C: Style/AsciiComments: Use only ascii symbols in comments.
+      # Calcula la página del usuario actual
+                    ^
+controllers/ranking_controller.rb:14:68: C: Style/AsciiComments: Use only ascii symbols in comments.
+      session.delete(:from_dashboard) # Elimina la variable de sesión después de usarla
+                                                                   ^
+controllers/ranking_controller.rb:16:56: C: Style/AsciiComments: Use only ascii symbols in comments.
+      # Si el usuario accede directamente, muestra la página del ranking que corresponda
+                                                       ^
+controllers/ranking_controller.rb:22:1: C: Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body end.
+models/answer.rb:56:8: C: Style/AsciiComments: Use only ascii symbols in comments.
+    # Método para obtener las preguntas no respondidas por el usuario en un tema y nivel específicos
+       ^
+models/answer.rb:57:5: W: Lint/IneffectiveAccessModifier: private (on line 19) does not make singleton methods private. Use private_class_method or private inside a class << self block instead.
+    def self.get_unanswered_questions(session, topic_id, level)
+    ^^^
+models/answer.rb:63:1: C: Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body end.
+
+56 files inspected, 32 offenses detected, 21 offenses auto-correctable

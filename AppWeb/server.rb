@@ -14,15 +14,15 @@ require_relative 'controllers/init'
 class App < Sinatra::Application
 
   set :views, Proc.new { File.join(root, 'views') }
-  use Rack::Session::Cookie, key: 'prelude_code_session',
-                             expire_after: 60 * 60, #1 hora
-                             secret: '5cQK8KJmpxqm3PBZQfpBgX3wb7U9x8R6NNLHU2cqTVcBSh9x7pdXa7eYrA9T4pbG'
+  use Rack::Session::Cookie, :key => 'prelude_code_session',
+                             :expire_after => 60 * 60, #1 hora
+                             :secret => '5cQK8KJmpxqm3PBZQfpBgX3wb7U9x8R6NNLHU2cqTVcBSh9x7pdXa7eYrA9T4pbG'
 
   use Rack::Flash
  
+  use HistoryController
   use QuestionController
-  use TopicController
-  use AnswerController
+  use RankingController
   use UserController
 
   configure :production, :development do

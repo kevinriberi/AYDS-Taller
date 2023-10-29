@@ -10,66 +10,66 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_06_121545) do
-  create_table "answers", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "question_id", null: false
-    t.integer "option_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "time", default: 0
-    t.integer "points", default: 0
-    t.index ["option_id"], name: "index_answers_on_option_id"
-    t.index ["question_id"], name: "index_answers_on_question_id"
-    t.index ["user_id"], name: "index_answers_on_user_id"
+ActiveRecord::Schema[7.0].define(:version => 20_231_006_121_545) do
+  create_table "answers", :force => :cascade do |t|
+    t.integer "user_id", :null => false
+    t.integer "question_id", :null => false
+    t.integer "option_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer "time", :default => 0
+    t.integer "points", :default => 0
+    t.index ["option_id"], :name => "index_answers_on_option_id"
+    t.index ["question_id"], :name => "index_answers_on_question_id"
+    t.index ["user_id"], :name => "index_answers_on_user_id"
   end
 
-  create_table "knowledges", force: :cascade do |t|
+  create_table "knowledges", :force => :cascade do |t|
     t.integer "user_id"
     t.integer "topic_id"
     t.integer "level"
     t.integer "correct_answers_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["topic_id"], name: "index_knowledges_on_topic_id"
-    t.index ["user_id"], name: "index_knowledges_on_user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.index ["topic_id"], :name => "index_knowledges_on_topic_id"
+    t.index ["user_id"], :name => "index_knowledges_on_user_id"
   end
 
-  create_table "options", force: :cascade do |t|
+  create_table "options", :force => :cascade do |t|
     t.text "content"
     t.integer "question_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.boolean "correct", default: false
-    t.index ["question_id"], name: "index_options_on_question_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.boolean "correct", :default => false
+    t.index ["question_id"], :name => "index_options_on_question_id"
   end
 
-  create_table "questions", force: :cascade do |t|
+  create_table "questions", :force => :cascade do |t|
     t.text "content"
     t.integer "topic_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer "level"
-    t.index ["topic_id"], name: "index_questions_on_topic_id"
+    t.index ["topic_id"], :name => "index_questions_on_topic_id"
   end
 
-  create_table "topics", force: :cascade do |t|
+  create_table "topics", :force => :cascade do |t|
     t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.integer "amount_questions_L1"
     t.integer "amount_questions_L2"
     t.integer "amount_questions_L3"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", :force => :cascade do |t|
     t.string "username"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string "password_digest"
-    t.integer "points", default: 0
+    t.integer "points", :default => 0
     t.string "email"
-    t.integer "streak", default: 0
+    t.integer "streak", :default => 0
   end
 
   add_foreign_key "answers", "options"

@@ -7,14 +7,14 @@
     gem 'rack-flash3'
     gem 'rack-test'
     gem 'will_paginate'
-    gem 'rubocop', '~> 0.91.0', require: false
+    gem 'rubocop', '~> 0.91.0', :require => false
     
     group :test do
       gem 'rspec'
       gem 'simplecov'
     end
     
-   github 'sinatra/sinatra', branch: 'main' do
+   github 'sinatra/sinatra', :branch => 'main' do
     gem 'sinatra'
     gem 'sinatra-contrib'
 

@@ -2,9 +2,9 @@ class Knowledge < ActiveRecord::Base
     belongs_to :user
     belongs_to :topic
 
-    validates :user_id, presence: true
-    validates :topic_id, presence: true
-    validates :level, presence: true, inclusion: { in: 1..4 }
+    validates :user_id, :presence => true
+    validates :topic_id, :presence => true
+    validates :level, :presence => true, :inclusion => { :in => 1..4 }
   
     validate :valid_user_id
     validate :valid_topic_id

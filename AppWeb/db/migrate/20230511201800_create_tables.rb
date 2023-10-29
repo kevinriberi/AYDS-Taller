@@ -3,7 +3,7 @@
       create_table :questions do |t|
         t.string :title
         t.text :content
-        t.references :topic, foreign_key: true
+        t.references :topic, :foreign_key => true
   
         t.timestamps
       end
