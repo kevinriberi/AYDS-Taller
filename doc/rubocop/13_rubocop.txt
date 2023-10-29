@@ -1,0 +1,940 @@
+Inspecting 56 files
+................................................WWCWCCC.
+
+Offenses:
+
+spec/app_spec.rb:7:1: C: Metrics/BlockLength: Block has too many lines. [277/243]
+RSpec.describe 'Sinatra App' do ...
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:17:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:17:61: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                            ^^^^^^
+spec/app_spec.rb:17:93: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                                                            ^^^^^^^^^
+spec/app_spec.rb:46:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id, from_dashboard: true }
+                  ^^^^^^^^
+spec/app_spec.rb:46:37: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id, from_dashboard: true }
+                                    ^^^^^^^^^^^^^^^
+spec/app_spec.rb:56:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:56:61: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                            ^^^^^^
+spec/app_spec.rb:56:93: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                                                            ^^^^^^^^^
+spec/app_spec.rb:57:38: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                     ^^^^^
+spec/app_spec.rb:57:56: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:57:80: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                               ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:57:104: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:58:44: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                           ^^^^^^^^
+spec/app_spec.rb:58:88: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:58:112: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                                               ^^^^^^
+spec/app_spec.rb:59:24: C: Style/HashSyntax: Use hash rockets syntax.
+      Knowledge.create(user: @existing_user, topic: @existing_topic, level: 1)
+                       ^^^^^
+spec/app_spec.rb:59:46: C: Style/HashSyntax: Use hash rockets syntax.
+      Knowledge.create(user: @existing_user, topic: @existing_topic, level: 1)
+                                             ^^^^^^
+spec/app_spec.rb:59:70: C: Style/HashSyntax: Use hash rockets syntax.
+      Knowledge.create(user: @existing_user, topic: @existing_topic, level: 1)
+                                                                     ^^^^^^
+spec/app_spec.rb:73:7: W: Lint/UselessAssignment: Useless assignment to variable - question.
+      question = @existing_question
+      ^^^^^^^^
+spec/app_spec.rb:75:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:86:28: C: Style/HashSyntax: Use hash rockets syntax.
+      topic = Topic.create(name: 'Test Topic and Destroy', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                           ^^^^^
+spec/app_spec.rb:86:60: C: Style/HashSyntax: Use hash rockets syntax.
+      topic = Topic.create(name: 'Test Topic and Destroy', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                           ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:86:84: C: Style/HashSyntax: Use hash rockets syntax.
+      topic = Topic.create(name: 'Test Topic and Destroy', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                                                   ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:86:108: C: Style/HashSyntax: Use hash rockets syntax.
+      topic = Topic.create(name: 'Test Topic and Destroy', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                                                                           ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:90:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:102:38: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                     ^^^^^
+spec/app_spec.rb:102:56: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:102:80: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                               ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:102:104: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:103:44: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                           ^^^^^^^^
+spec/app_spec.rb:103:88: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:103:112: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                                               ^^^^^^
+spec/app_spec.rb:123:34: C: Style/HashSyntax: Use hash rockets syntax.
+      question = Question.create(content: '¿Cuál es la capital de Lituania?', topic: topic, level: 1)
+                                 ^^^^^^^^
+spec/app_spec.rb:123:79: C: Style/HashSyntax: Use hash rockets syntax.
+      question = Question.create(content: '¿Cuál es la capital de Lituania?', topic: topic, level: 1)
+                                                                              ^^^^^^
+spec/app_spec.rb:123:93: C: Style/HashSyntax: Use hash rockets syntax.
+      question = Question.create(content: '¿Cuál es la capital de Lituania?', topic: topic, level: 1)
+                                                                                            ^^^^^^
+spec/app_spec.rb:137:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testexample.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:137:61: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testexample.com', password: 'password123')
+                                                            ^^^^^^
+spec/app_spec.rb:137:87: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testexample.com', password: 'password123')
+                                                                                      ^^^^^^^^^
+spec/app_spec.rb:146:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:166:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:166:59: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                          ^^^^^^
+spec/app_spec.rb:166:86: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                                                     ^^^^^^^^^
+spec/app_spec.rb:167:38: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Test Topic', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                     ^^^^^
+spec/app_spec.rb:167:58: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Test Topic', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                         ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:167:82: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Test Topic', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                 ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:167:106: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_topic = Topic.create(name: 'Test Topic', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                         ^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:168:44: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                           ^^^^^^^^
+spec/app_spec.rb:168:88: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:168:112: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+                                                                                                               ^^^^^^
+spec/app_spec.rb:169:7: C: Naming/VariableName: Use snake_case for variable names.
+      @existing_question_L3 = Question.create(content: '¿Cuál es la capital de Cordoba?', topic: @existing_topic, level: 3)
+      ^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:169:47: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question_L3 = Question.create(content: '¿Cuál es la capital de Cordoba?', topic: @existing_topic, level: 3)
+                                              ^^^^^^^^
+spec/app_spec.rb:169:91: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question_L3 = Question.create(content: '¿Cuál es la capital de Cordoba?', topic: @existing_topic, level: 3)
+                                                                                          ^^^^^^
+spec/app_spec.rb:169:115: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_question_L3 = Question.create(content: '¿Cuál es la capital de Cordoba?', topic: @existing_topic, level: 3)
+                                                                                                                  ^^^^^^
+spec/app_spec.rb:170:40: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option = Option.create(content: 'París', correct: true, question: @existing_question)
+                                       ^^^^^^^^
+spec/app_spec.rb:170:58: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option = Option.create(content: 'París', correct: true, question: @existing_question)
+                                                         ^^^^^^^^
+spec/app_spec.rb:170:73: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option = Option.create(content: 'París', correct: true, question: @existing_question)
+                                                                        ^^^^^^^^^
+spec/app_spec.rb:171:51: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing__incorrect_option = Option.create(content: 'Tolouse', correct: false, question: @existing_question)
+                                                  ^^^^^^^^
+spec/app_spec.rb:171:71: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing__incorrect_option = Option.create(content: 'Tolouse', correct: false, question: @existing_question)
+                                                                      ^^^^^^^^
+spec/app_spec.rb:171:87: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing__incorrect_option = Option.create(content: 'Tolouse', correct: false, question: @existing_question)
+                                                                                      ^^^^^^^^^
+spec/app_spec.rb:172:7: C: Naming/VariableName: Use snake_case for variable names.
+      @existing_option_L3 = Option.create(content: 'Cordoba', correct: true, question: @existing_question_L3)
+      ^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:172:43: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option_L3 = Option.create(content: 'Cordoba', correct: true, question: @existing_question_L3)
+                                          ^^^^^^^^
+spec/app_spec.rb:172:63: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option_L3 = Option.create(content: 'Cordoba', correct: true, question: @existing_question_L3)
+                                                              ^^^^^^^^
+spec/app_spec.rb:172:78: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_option_L3 = Option.create(content: 'Cordoba', correct: true, question: @existing_question_L3)
+                                                                             ^^^^^^^^^
+spec/app_spec.rb:190:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                   ^^^^^
+spec/app_spec.rb:190:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                               ^^^^^^
+spec/app_spec.rb:190:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:190:88: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:192:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:194:26: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                         ^^^^^^^^^^^^
+spec/app_spec.rb:194:52: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                   ^^^^^^^^^^
+spec/app_spec.rb:194:74: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                                         ^^^^^
+spec/app_spec.rb:207:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 1)
+                                   ^^^^^
+spec/app_spec.rb:207:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 1)
+                                               ^^^^^^
+spec/app_spec.rb:207:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 1)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:207:88: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:209:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:211:26: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                         ^^^^^^^^^^^^
+spec/app_spec.rb:211:52: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                   ^^^^^^^^^^
+spec/app_spec.rb:211:74: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                                         ^^^^^
+spec/app_spec.rb:225:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 3)
+                                   ^^^^^
+spec/app_spec.rb:225:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 3)
+                                               ^^^^^^
+spec/app_spec.rb:225:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 3)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:225:88: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 3)
+                                                                                       ^^^^^^
+spec/app_spec.rb:227:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:229:26: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                         ^^^^^^^^^^^^
+spec/app_spec.rb:229:52: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                   ^^^^^^^^^^
+spec/app_spec.rb:229:74: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                                         ^^^^^
+spec/app_spec.rb:242:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                   ^^^^^
+spec/app_spec.rb:242:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                               ^^^^^^
+spec/app_spec.rb:242:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:242:88: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+                                                                                       ^^^^^^
+spec/app_spec.rb:244:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:246:26: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                         ^^^^^^^^^^^^
+spec/app_spec.rb:246:52: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                   ^^^^^^^^^^
+spec/app_spec.rb:246:74: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+                                                                         ^^^^^
+spec/app_spec.rb:257:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:257:59: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                          ^^^^^^
+spec/app_spec.rb:257:86: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                                                     ^^^^^^^^^
+spec/app_spec.rb:265:7: W: Lint/UselessAssignment: Useless assignment to variable - user.
+      user = @existing_user
+      ^^^^
+spec/app_spec.rb:267:24: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: 'test_user', email: 'test@example.com', password: 'password123' }
+                       ^^^^^^^^^
+spec/app_spec.rb:267:47: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: 'test_user', email: 'test@example.com', password: 'password123' }
+                                              ^^^^^^
+spec/app_spec.rb:267:74: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: 'test_user', email: 'test@example.com', password: 'password123' }
+                                                                         ^^^^^^^^^
+spec/app_spec.rb:278:24: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: user.username, email: user.email, password: wrong_password }
+                       ^^^^^^^^^
+spec/app_spec.rb:278:49: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: user.username, email: user.email, password: wrong_password }
+                                                ^^^^^^
+spec/app_spec.rb:278:68: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/login', { username: user.username, email: user.email, password: wrong_password }
+                                                                   ^^^^^^^^^
+spec/app_spec.rb:287:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:287:59: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                          ^^^^^^
+spec/app_spec.rb:287:86: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+                                                                                     ^^^^^^^^^
+spec/app_spec.rb:296:27: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'password123' }
+                          ^^^^^^^^^
+spec/app_spec.rb:296:54: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'password123' }
+                                                     ^^^^^^
+spec/app_spec.rb:296:82: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'password123' }
+                                                                                 ^^^^^^^^^
+spec/app_spec.rb:296:107: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'password123' }
+                                                                                                          ^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:305:31: C: Style/HashSyntax: Use hash rockets syntax.
+      new_user = User.find_by(username: 'nuevo_usuario')
+                              ^^^^^^^^^
+spec/app_spec.rb:314:27: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: user.username, email: 'nuevoemail@example.com', password: 'password123', confirm_password: 'password123' }
+                          ^^^^^^^^^
+spec/app_spec.rb:314:52: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: user.username, email: 'nuevoemail@example.com', password: 'password123', confirm_password: 'password123' }
+                                                   ^^^^^^
+spec/app_spec.rb:314:85: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: user.username, email: 'nuevoemail@example.com', password: 'password123', confirm_password: 'password123' }
+                                                                                    ^^^^^^^^^
+spec/app_spec.rb:314:110: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: user.username, email: 'nuevoemail@example.com', password: 'password123', confirm_password: 'password123' }
+                                                                                                             ^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:322:27: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: user.email, password: 'password123', confirm_password: 'password123' }
+                          ^^^^^^^^^
+spec/app_spec.rb:322:54: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: user.email, password: 'password123', confirm_password: 'password123' }
+                                                     ^^^^^^
+spec/app_spec.rb:322:73: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: user.email, password: 'password123', confirm_password: 'password123' }
+                                                                        ^^^^^^^^^
+spec/app_spec.rb:322:98: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: user.email, password: 'password123', confirm_password: 'password123' }
+                                                                                                 ^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:329:27: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'otraPassword' }
+                          ^^^^^^^^^
+spec/app_spec.rb:329:54: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'otraPassword' }
+                                                     ^^^^^^
+spec/app_spec.rb:329:82: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'otraPassword' }
+                                                                                 ^^^^^^^^^
+spec/app_spec.rb:329:107: C: Style/HashSyntax: Use hash rockets syntax.
+      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'otraPassword' }
+                                                                                                          ^^^^^^^^^^^^^^^^^
+spec/app_spec.rb:337:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:337:61: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                            ^^^^^^
+spec/app_spec.rb:337:93: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                                                            ^^^^^^^^^
+spec/app_spec.rb:346:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:358:36: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                   ^^^^^^^^^
+spec/app_spec.rb:358:61: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                            ^^^^^^
+spec/app_spec.rb:358:93: C: Style/HashSyntax: Use hash rockets syntax.
+      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+                                                                                            ^^^^^^^^^
+spec/app_spec.rb:367:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:376:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/app_spec.rb:385:19: C: Style/HashSyntax: Use hash rockets syntax.
+      session = { user_id: user.id }
+                  ^^^^^^^^
+spec/models/answer_spec.rb:8:34: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                 ^^^^^^^^^
+spec/models/answer_spec.rb:8:57: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                                        ^^^^^^
+spec/models/answer_spec.rb:8:87: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                                                                      ^^^^^^^^^^^^^^^^
+spec/models/answer_spec.rb:9:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user_2 = User.create(username: 'Mateo19', email: 'mateo19@example.com', password_digest: 'password')
+                                   ^^^^^^^^^
+spec/models/answer_spec.rb:9:57: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user_2 = User.create(username: 'Mateo19', email: 'mateo19@example.com', password_digest: 'password')
+                                                        ^^^^^^
+spec/models/answer_spec.rb:9:87: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user_2 = User.create(username: 'Mateo19', email: 'mateo19@example.com', password_digest: 'password')
+                                                                                      ^^^^^^^^^^^^^^^^
+spec/models/answer_spec.rb:10:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Geografía', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                   ^^^^^
+spec/models/answer_spec.rb:10:55: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Geografía', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                      ^^^^^^^^^^^^^^^^^^^^
+spec/models/answer_spec.rb:10:79: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Geografía', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                              ^^^^^^^^^^^^^^^^^^^^
+spec/models/answer_spec.rb:10:103: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Geografía', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^
+spec/models/answer_spec.rb:11:44: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_1 = Question.create(content: '¿Cuál es la capital de Armenia?', topic: @existing_topic, level: 3)
+                                           ^^^^^^^^
+spec/models/answer_spec.rb:11:88: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_1 = Question.create(content: '¿Cuál es la capital de Armenia?', topic: @existing_topic, level: 3)
+                                                                                       ^^^^^^
+spec/models/answer_spec.rb:11:112: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_1 = Question.create(content: '¿Cuál es la capital de Armenia?', topic: @existing_topic, level: 3)
+                                                                                                               ^^^^^^
+spec/models/answer_spec.rb:12:44: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_2 = Question.create(content: '¿Cuál es la población de China?', topic: @existing_topic, level: 2)
+                                           ^^^^^^^^
+spec/models/answer_spec.rb:12:88: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_2 = Question.create(content: '¿Cuál es la población de China?', topic: @existing_topic, level: 2)
+                                                                                       ^^^^^^
+spec/models/answer_spec.rb:12:112: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question_2 = Question.create(content: '¿Cuál es la población de China?', topic: @existing_topic, level: 2)
+                                                                                                               ^^^^^^
+spec/models/answer_spec.rb:13:41: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_option_q1 = Option.create(content: 'Nueva Dehli', question: @existing_question_1)
+                                        ^^^^^^^^
+spec/models/answer_spec.rb:13:65: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_option_q1 = Option.create(content: 'Nueva Dehli', question: @existing_question_1)
+                                                                ^^^^^^^^^
+spec/models/answer_spec.rb:14:41: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_option_q2 = Option.create(content: 'Mil millones de habitantes', question: @existing_question_2)
+                                        ^^^^^^^^
+spec/models/answer_spec.rb:14:80: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_option_q2 = Option.create(content: 'Mil millones de habitantes', question: @existing_question_2)
+                                                                               ^^^^^^^^^
+spec/models/answer_spec.rb:15:22: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user, topic: @existing_topic, level: 3)
+                     ^^^^^
+spec/models/answer_spec.rb:15:44: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user, topic: @existing_topic, level: 3)
+                                           ^^^^^^
+spec/models/answer_spec.rb:15:68: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user, topic: @existing_topic, level: 3)
+                                                                   ^^^^^^
+spec/models/answer_spec.rb:16:22: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user_2, topic: @existing_topic, level: 1)
+                     ^^^^^
+spec/models/answer_spec.rb:16:46: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user_2, topic: @existing_topic, level: 1)
+                                             ^^^^^^
+spec/models/answer_spec.rb:16:70: C: Style/HashSyntax: Use hash rockets syntax.
+    Knowledge.create(user: @existing_user_2, topic: @existing_topic, level: 1)
+                                                                     ^^^^^^
+spec/models/answer_spec.rb:32:5: W: Lint/UselessAssignment: Useless assignment to variable - topic.
+    topic = @existing_topic
+    ^^^^^
+spec/models/answer_spec.rb:35:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option)
+                        ^^^^^
+spec/models/answer_spec.rb:35:37: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option)
+                                    ^^^^^^^^^
+spec/models/answer_spec.rb:35:57: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option)
+                                                        ^^^^^^^
+spec/models/answer_spec.rb:42:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(question: question, option: option)
+                        ^^^^^^^^^
+spec/models/answer_spec.rb:42:45: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(question: question, option: option)
+                                            ^^^^^^^
+spec/models/answer_spec.rb:49:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, option: option)
+                        ^^^^^
+spec/models/answer_spec.rb:49:37: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, option: option)
+                                    ^^^^^^^
+spec/models/answer_spec.rb:56:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question)
+                        ^^^^^
+spec/models/answer_spec.rb:56:37: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question)
+                                    ^^^^^^^^^
+spec/models/answer_spec.rb:64:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option_q2)
+                        ^^^^^
+spec/models/answer_spec.rb:64:37: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option_q2)
+                                    ^^^^^^^^^
+spec/models/answer_spec.rb:64:57: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user, question: question, option: option_q2)
+                                                        ^^^^^^^
+spec/models/answer_spec.rb:72:25: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user_2, question: question_1, option: option_q1)
+                        ^^^^^
+spec/models/answer_spec.rb:72:39: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user_2, question: question_1, option: option_q1)
+                                      ^^^^^^^^^
+spec/models/answer_spec.rb:72:61: C: Style/HashSyntax: Use hash rockets syntax.
+    answer = Answer.new(user: user_2, question: question_1, option: option_q1)
+                                                            ^^^^^^^
+spec/models/knowledge_spec.rb:8:34: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                 ^^^^^^^^^
+spec/models/knowledge_spec.rb:8:57: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                                        ^^^^^^
+spec/models/knowledge_spec.rb:8:87: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Pablito10', email: 'pablito@example.com', password_digest: 'password')
+                                                                                      ^^^^^^^^^^^^^^^^
+spec/models/knowledge_spec.rb:9:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Biologia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                   ^^^^^
+spec/models/knowledge_spec.rb:9:54: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Biologia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/knowledge_spec.rb:9:78: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Biologia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                             ^^^^^^^^^^^^^^^^^^^^
+spec/models/knowledge_spec.rb:9:102: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Biologia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/knowledge_spec.rb:21:33: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 1)
+                                ^^^^^
+spec/models/knowledge_spec.rb:21:45: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 1)
+                                            ^^^^^^
+spec/models/knowledge_spec.rb:21:59: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 1)
+                                                          ^^^^^^
+spec/models/knowledge_spec.rb:27:33: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(topic: topic, level: 2)
+                                ^^^^^^
+spec/models/knowledge_spec.rb:27:47: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(topic: topic, level: 2)
+                                              ^^^^^^
+spec/models/knowledge_spec.rb:33:33: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, level: 3)
+                                ^^^^^
+spec/models/knowledge_spec.rb:33:45: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, level: 3)
+                                            ^^^^^^
+spec/models/knowledge_spec.rb:40:33: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 6)
+                                ^^^^^
+spec/models/knowledge_spec.rb:40:45: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 6)
+                                            ^^^^^^
+spec/models/knowledge_spec.rb:40:59: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.new(user: user, topic: topic, level: 6)
+                                                          ^^^^^^
+spec/models/knowledge_spec.rb:49:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 1)
+                                   ^^^^^
+spec/models/knowledge_spec.rb:49:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 1)
+                                               ^^^^^^
+spec/models/knowledge_spec.rb:49:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 1)
+                                                             ^^^^^^
+spec/models/knowledge_spec.rb:69:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 1, level: 2)
+                                   ^^^^^
+spec/models/knowledge_spec.rb:69:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 1, level: 2)
+                                               ^^^^^^
+spec/models/knowledge_spec.rb:69:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 1, level: 2)
+                                                             ^^^^^^^^^^^^^^^^^^^^^^
+spec/models/knowledge_spec.rb:69:88: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 1, level: 2)
+                                                                                       ^^^^^^
+spec/models/knowledge_spec.rb:78:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 4)
+                                   ^^^^^
+spec/models/knowledge_spec.rb:78:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 4)
+                                               ^^^^^^
+spec/models/knowledge_spec.rb:78:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 4)
+                                                             ^^^^^^
+spec/models/knowledge_spec.rb:88:36: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 3)
+                                   ^^^^^
+spec/models/knowledge_spec.rb:88:48: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 3)
+                                               ^^^^^^
+spec/models/knowledge_spec.rb:88:62: C: Style/HashSyntax: Use hash rockets syntax.
+      knowledge = Knowledge.create(user: user, topic: topic, level: 3)
+                                                             ^^^^^^
+spec/models/option_spec.rb:8:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Deportes', amount_questions_L1: 5, amount_questions_L2: 5, amount_questions_L3: 3)
+                                   ^^^^^
+spec/models/option_spec.rb:8:54: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Deportes', amount_questions_L1: 5, amount_questions_L2: 5, amount_questions_L3: 3)
+                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/option_spec.rb:8:78: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Deportes', amount_questions_L1: 5, amount_questions_L2: 5, amount_questions_L3: 3)
+                                                                             ^^^^^^^^^^^^^^^^^^^^
+spec/models/option_spec.rb:8:102: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Deportes', amount_questions_L1: 5, amount_questions_L2: 5, amount_questions_L3: 3)
+                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/option_spec.rb:9:42: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question = Question.create(content: '¿Cuántos jugadores tiene un equipo de basquet?', topic: @existing_topic, level: 2)
+                                         ^^^^^^^^
+spec/models/option_spec.rb:9:101: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question = Question.create(content: '¿Cuántos jugadores tiene un equipo de basquet?', topic: @existing_topic, level: 2)
+                                                                                                    ^^^^^^
+spec/models/option_spec.rb:9:125: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_question = Question.create(content: '¿Cuántos jugadores tiene un equipo de basquet?', topic: @existing_topic, level: 2)
+                                                                                                                            ^^^^^^
+spec/models/option_spec.rb:18:5: W: Lint/UselessAssignment: Useless assignment to variable - topic.
+    topic = @existing_topic
+    ^^^^^
+spec/models/option_spec.rb:21:25: C: Style/HashSyntax: Use hash rockets syntax.
+    option = Option.new(content: '7', question: question)
+                        ^^^^^^^^
+spec/models/option_spec.rb:21:39: C: Style/HashSyntax: Use hash rockets syntax.
+    option = Option.new(content: '7', question: question)
+                                      ^^^^^^^^^
+spec/models/option_spec.rb:27:25: C: Style/HashSyntax: Use hash rockets syntax.
+    option = Option.new(question: question)
+                        ^^^^^^^^^
+spec/models/option_spec.rb:33:28: W: Lint/UselessAssignment: Useless assignment to variable - question.
+    question_for_destroy = question = Question.create(content: '¿Cuántos jugadores tiene un equipo de rugby?', topic: topic, level: 2)
+                           ^^^^^^^^
+spec/models/option_spec.rb:33:55: C: Style/HashSyntax: Use hash rockets syntax.
+    question_for_destroy = question = Question.create(content: '¿Cuántos jugadores tiene un equipo de rugby?', topic: topic, level: 2)
+                                                      ^^^^^^^^
+spec/models/option_spec.rb:33:112: C: Style/HashSyntax: Use hash rockets syntax.
+    question_for_destroy = question = Question.create(content: '¿Cuántos jugadores tiene un equipo de rugby?', topic: topic, level: 2)
+                                                                                                               ^^^^^^
+spec/models/option_spec.rb:33:126: C: Style/HashSyntax: Use hash rockets syntax.
+    question_for_destroy = question = Question.create(content: '¿Cuántos jugadores tiene un equipo de rugby?', topic: topic, level: 2)
+                                                                                                                             ^^^^^^
+spec/models/option_spec.rb:36:25: C: Style/HashSyntax: Use hash rockets syntax.
+    option = Option.new(content: '7', question_id: id_before_destroy)
+                        ^^^^^^^^
+spec/models/option_spec.rb:36:39: C: Style/HashSyntax: Use hash rockets syntax.
+    option = Option.new(content: '7', question_id: id_before_destroy)
+                                      ^^^^^^^^^^^^
+spec/models/question_spec.rb:8:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                   ^^^^^
+spec/models/question_spec.rb:8:54: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:8:78: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                             ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:8:102: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:17:29: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la revolución de Mayo?', topic: topic, level: 1)
+                            ^^^^^^^^
+spec/models/question_spec.rb:17:76: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la revolución de Mayo?', topic: topic, level: 1)
+                                                                           ^^^^^^
+spec/models/question_spec.rb:17:90: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la revolución de Mayo?', topic: topic, level: 1)
+                                                                                         ^^^^^^
+spec/models/question_spec.rb:23:29: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(topic: topic, level: 1)
+                            ^^^^^^
+spec/models/question_spec.rb:23:43: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(topic: topic, level: 1)
+                                          ^^^^^^
+spec/models/question_spec.rb:28:38: C: Style/HashSyntax: Use hash rockets syntax.
+    topic_for_destroy = Topic.create(name: 'Ciencias Naturales', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                     ^^^^^
+spec/models/question_spec.rb:28:66: C: Style/HashSyntax: Use hash rockets syntax.
+    topic_for_destroy = Topic.create(name: 'Ciencias Naturales', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                 ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:28:90: C: Style/HashSyntax: Use hash rockets syntax.
+    topic_for_destroy = Topic.create(name: 'Ciencias Naturales', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                         ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:28:114: C: Style/HashSyntax: Use hash rockets syntax.
+    topic_for_destroy = Topic.create(name: 'Ciencias Naturales', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                                                 ^^^^^^^^^^^^^^^^^^^^
+spec/models/question_spec.rb:31:29: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 2da Guerra Mundial?', topic_id: id_before_destroy, level: 1)
+                            ^^^^^^^^
+spec/models/question_spec.rb:31:76: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 2da Guerra Mundial?', topic_id: id_before_destroy, level: 1)
+                                                                           ^^^^^^^^^
+spec/models/question_spec.rb:31:105: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 2da Guerra Mundial?', topic_id: id_before_destroy, level: 1)
+                                                                                                        ^^^^^^
+spec/models/question_spec.rb:37:29: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 3ra Guerra Mundial?', topic: topic, level: -2)
+                            ^^^^^^^^
+spec/models/question_spec.rb:37:76: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 3ra Guerra Mundial?', topic: topic, level: -2)
+                                                                           ^^^^^^
+spec/models/question_spec.rb:37:90: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 3ra Guerra Mundial?', topic: topic, level: -2)
+                                                                                         ^^^^^^
+spec/models/question_spec.rb:43:29: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 4ta Guerra Mundial?', topic: topic, level: 4)
+                            ^^^^^^^^
+spec/models/question_spec.rb:43:76: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 4ta Guerra Mundial?', topic: topic, level: 4)
+                                                                           ^^^^^^
+spec/models/question_spec.rb:43:90: C: Style/HashSyntax: Use hash rockets syntax.
+    question = Question.new(content: '¿Cuándo fue la 4ta Guerra Mundial?', topic: topic, level: 4)
+                                                                                         ^^^^^^
+spec/models/question_spec.rb:49:33: C: Style/HashSyntax: Use hash rockets syntax.
+    question1 = Question.create(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 1)
+                                ^^^^^^^^
+spec/models/question_spec.rb:49:80: C: Style/HashSyntax: Use hash rockets syntax.
+    question1 = Question.create(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 1)
+                                                                               ^^^^^^
+spec/models/question_spec.rb:49:94: C: Style/HashSyntax: Use hash rockets syntax.
+    question1 = Question.create(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 1)
+                                                                                             ^^^^^^
+spec/models/question_spec.rb:50:30: C: Style/HashSyntax: Use hash rockets syntax.
+    question2 = Question.new(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 2)
+                             ^^^^^^^^
+spec/models/question_spec.rb:50:77: C: Style/HashSyntax: Use hash rockets syntax.
+    question2 = Question.new(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 2)
+                                                                            ^^^^^^
+spec/models/question_spec.rb:50:91: C: Style/HashSyntax: Use hash rockets syntax.
+    question2 = Question.new(content: '¿Cuándo fue la 5ta Guerra Mundial?', topic: topic, level: 2)
+                                                                                          ^^^^^^
+spec/models/topic_spec.rb:8:36: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Matematica', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                   ^^^^^
+spec/models/topic_spec.rb:8:56: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Matematica', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:8:80: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Matematica', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                                               ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:8:104: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_topic = Topic.create(name: 'Matematica', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+                                                                                                       ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:16:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Paleontología', amount_questions_L1: 0, amount_questions_L2: 2, amount_questions_L3: 1)
+                      ^^^^^
+spec/models/topic_spec.rb:16:46: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Paleontología', amount_questions_L1: 0, amount_questions_L2: 2, amount_questions_L3: 1)
+                                             ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:16:70: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Paleontología', amount_questions_L1: 0, amount_questions_L2: 2, amount_questions_L3: 1)
+                                                                     ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:16:94: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Paleontología', amount_questions_L1: 0, amount_questions_L2: 2, amount_questions_L3: 1)
+                                                                                             ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:21:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(amount_questions_L1: 0, amount_questions_L2: 0, amount_questions_L3: 0)
+                      ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:21:47: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(amount_questions_L1: 0, amount_questions_L2: 0, amount_questions_L3: 0)
+                                              ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:21:71: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(amount_questions_L1: 0, amount_questions_L2: 0, amount_questions_L3: 0)
+                                                                      ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:26:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L2: 0, amount_questions_L3: 1)
+                      ^^^^^
+spec/models/topic_spec.rb:26:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L2: 0, amount_questions_L3: 1)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:26:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L2: 0, amount_questions_L3: 1)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:31:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L3: 0)
+                      ^^^^^
+spec/models/topic_spec.rb:31:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L3: 0)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:31:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L3: 0)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:36:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 0, amount_questions_L3: 1)
+                      ^^^^^
+spec/models/topic_spec.rb:36:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 0, amount_questions_L3: 1)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:36:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 0, amount_questions_L3: 1)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:41:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: -1, amount_questions_L2: 1, amount_questions_L3: 0)
+                      ^^^^^
+spec/models/topic_spec.rb:41:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: -1, amount_questions_L2: 1, amount_questions_L3: 0)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:41:68: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: -1, amount_questions_L2: 1, amount_questions_L3: 0)
+                                                                   ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:41:92: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: -1, amount_questions_L2: 1, amount_questions_L3: 0)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:46:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: -1, amount_questions_L3: 0)
+                      ^^^^^
+spec/models/topic_spec.rb:46:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: -1, amount_questions_L3: 0)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:46:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: -1, amount_questions_L3: 0)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:46:92: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: -1, amount_questions_L3: 0)
+                                                                                           ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:51:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: 1, amount_questions_L3: -5)
+                      ^^^^^
+spec/models/topic_spec.rb:51:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: 1, amount_questions_L3: -5)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:51:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: 1, amount_questions_L3: -5)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:51:91: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 1, amount_questions_L2: 1, amount_questions_L3: -5)
+                                                                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:57:23: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                      ^^^^^
+spec/models/topic_spec.rb:57:43: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:57:67: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                  ^^^^^^^^^^^^^^^^^^^^
+spec/models/topic_spec.rb:57:91: C: Style/HashSyntax: Use hash rockets syntax.
+    topic = Topic.new(name: 'Matematica', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                          ^^^^^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:9:34: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Messi10', email: 'messi@example.com', password_digest: 'password')
+                                 ^^^^^^^^^
+spec/models/user_spec.rb:9:55: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Messi10', email: 'messi@example.com', password_digest: 'password')
+                                                      ^^^^^^
+spec/models/user_spec.rb:9:83: C: Style/HashSyntax: Use hash rockets syntax.
+    @existing_user = User.create(username: 'Messi10', email: 'messi@example.com', password_digest: 'password')
+                                                                                  ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:17:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Martincito28', email: 'martinp@example.com', password_digest: 'password')
+                    ^^^^^^^^^
+spec/models/user_spec.rb:17:47: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Martincito28', email: 'martinp@example.com', password_digest: 'password')
+                                              ^^^^^^
+spec/models/user_spec.rb:17:77: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Martincito28', email: 'martinp@example.com', password_digest: 'password')
+                                                                            ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:22:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(email: 'roman10@example.com', password_digest: 'password')
+                    ^^^^^^
+spec/models/user_spec.rb:22:51: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(email: 'roman10@example.com', password_digest: 'password')
+                                                  ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:27:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'RR10', password_digest: 'password')
+                    ^^^^^^^^^
+spec/models/user_spec.rb:27:39: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'RR10', password_digest: 'password')
+                                      ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:32:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'RR10', email: 'roman10@gmail.com')
+                    ^^^^^^^^^
+spec/models/user_spec.rb:32:39: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'RR10', email: 'roman10@gmail.com')
+                                      ^^^^^^
+spec/models/user_spec.rb:38:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'argento', email: 'messi@example.com', password_digest: 'password')
+                    ^^^^^^^^^
+spec/models/user_spec.rb:38:42: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'argento', email: 'messi@example.com', password_digest: 'password')
+                                         ^^^^^^
+spec/models/user_spec.rb:38:70: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'argento', email: 'messi@example.com', password_digest: 'password')
+                                                                     ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:44:21: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Messi10', email: 'otromail@example.com', password_digest: 'password')
+                    ^^^^^^^^^
+spec/models/user_spec.rb:44:42: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Messi10', email: 'otromail@example.com', password_digest: 'password')
+                                         ^^^^^^
+spec/models/user_spec.rb:44:73: C: Style/HashSyntax: Use hash rockets syntax.
+    user = User.new(username: 'Messi10', email: 'otromail@example.com', password_digest: 'password')
+                                                                        ^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:101:29: C: Style/HashSyntax: Use hash rockets syntax.
+      @topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                            ^^^^^
+spec/models/user_spec.rb:101:47: C: Style/HashSyntax: Use hash rockets syntax.
+      @topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                              ^^^^^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:101:71: C: Style/HashSyntax: Use hash rockets syntax.
+      @topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                      ^^^^^^^^^^^^^^^^^^^^
+spec/models/user_spec.rb:101:95: C: Style/HashSyntax: Use hash rockets syntax.
+      @topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
+                                                                                              ^^^^^^^^^^^^^^^^^^^^
+
+56 files inspected, 311 offenses detected, 311 offenses auto-correctable
