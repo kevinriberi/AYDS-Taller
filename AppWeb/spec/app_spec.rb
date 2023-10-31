@@ -14,7 +14,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'probando rutas del server' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user10', :email => 'testttttt@example.com', :password => 'password123')
     end
 
     after(:all) do
@@ -22,8 +22,8 @@ RSpec.describe 'Sinatra App' do
     end
 
     it 'se accede a la ruta principal' do
-      get '/' 
-      expect(last_response.status).to eq(200) 
+      get '/'
+      expect(last_response.status).to eq(200)
     end
 
     it 'se accede a la ruta de login' do
@@ -32,18 +32,18 @@ RSpec.describe 'Sinatra App' do
     end
 
     it 'se accede a la ruta de registro' do
-      get '/register' 
-      expect(last_response.status).to eq(200) 
+      get '/register'
+      expect(last_response.status).to eq(200)
     end
 
     it 'se accede a la ruta de ranking' do
-      get '/ranking' 
-      expect(last_response.status).to eq(200) 
+      get '/ranking'
+      expect(last_response.status).to eq(200)
     end
 
     it 'se accede a la ruta del ranking desde el dashboard' do
       user = @existing_user
-      session = { user_id: user.id, from_dashboard: true }
+      session = { :user_id => user.id, :from_dashboard => true }
 
       get '/ranking', {}, 'rack.session' => session
 
@@ -53,10 +53,10 @@ RSpec.describe 'Sinatra App' do
 
   context 'probando la ruta /topics/:id' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
-      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
-      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
-      Knowledge.create(user: @existing_user, topic: @existing_topic, level: 1)
+      @existing_user = User.create(:username => 'test_user10', :email => 'testttttt@example.com', :password => 'password123')
+      @existing_topic = Topic.create(:name => 'Historia', :amount_questions_L1 => 3, :amount_questions_L2 => 3, :amount_questions_L3 => 3)
+      @existing_question = Question.create(:content => '¿Cuál es la capital de Francia?', :topic => @existing_topic, :level => 1)
+      Knowledge.create(:user => @existing_user, :topic => @existing_topic, :level => 1)
     end
 
     after(:all) do
@@ -70,12 +70,10 @@ RSpec.describe 'Sinatra App' do
       user = @existing_user
       topic = @existing_topic
       topic_id = topic.id
-      question = @existing_question
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
       # Llama a la ruta con el topic_id valido y la sesion
       get "/topics/#{topic_id}", {}, 'rack.session' => session
-
 
       expect(last_response.redirect?).to be true
       expect(last_response.status).to eq(302)
@@ -83,11 +81,11 @@ RSpec.describe 'Sinatra App' do
 
     it 'debería devolver un error 404 si el topic_id no es válido' do
       user = @existing_user
-      topic = Topic.create(name: 'Test Topic and Destroy', amount_questions_L1: 2, amount_questions_L2: 2, amount_questions_L3: 2)
+      topic = Topic.create(:name => 'Test Topic and Destroy', :amount_questions_L1 => 2, :amount_questions_L2 => 2, :amount_questions_L3 => 2)
       topic_id = topic.id
       topic.destroy
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
       # Llama a la ruta con el topic_id invalido y la sesion
       get "/topics/#{topic_id}", {}, 'rack.session' => session
@@ -99,8 +97,8 @@ RSpec.describe 'Sinatra App' do
 
   context 'pruebas para /questions/:id/answer' do
     before(:all) do
-      @existing_topic = Topic.create(name: 'Historia', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
-      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
+      @existing_topic = Topic.create(:name => 'Historia', :amount_questions_L1 => 3, :amount_questions_L2 => 3, :amount_questions_L3 => 3)
+      @existing_question = Question.create(:content => '¿Cuál es la capital de Francia?', :topic => @existing_topic, :level => 1)
     end
 
     after(:all) do
@@ -119,8 +117,8 @@ RSpec.describe 'Sinatra App' do
 
     it 'debería devolver un error 404 si el ID de la pregunta no es válido' do
       topic = @existing_topic
-      # Crea una pregunta válida en tu base de datos y obtén su ID
-      question = Question.create(content: '¿Cuál es la capital de Lituania?', topic: topic, level: 1)
+      # Crea una pregunta valida en tu base de datos y obten su ID
+      question = Question.create(:content => '¿Cuál es la capital de Lituania?', :topic => topic, :level => 1)
       invalid_question_id = question.id
 
       question.destroy
@@ -134,7 +132,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'se chequea si se recibe la vista correcta en la ruta /' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user10', email: 'testexample.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user10', :email => 'testexample.com', :password => 'password123')
     end
 
     after(:all) do
@@ -143,7 +141,7 @@ RSpec.describe 'Sinatra App' do
 
     it 'debería renderizar la vista de dashboard si el usuario está autenticado' do
       user = @existing_user
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
       get '/', {}, 'rack.session' => session
 
@@ -163,22 +161,22 @@ RSpec.describe 'Sinatra App' do
 
   context 'POST /answers' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
-      @existing_topic = Topic.create(name: 'Test Topic', amount_questions_L1: 3, amount_questions_L2: 3, amount_questions_L3: 3)
-      @existing_question = Question.create(content: '¿Cuál es la capital de Francia?', topic: @existing_topic, level: 1)
-      @existing_question_L3 = Question.create(content: '¿Cuál es la capital de Cordoba?', topic: @existing_topic, level: 3)
-      @existing_option = Option.create(content: 'París', correct: true, question: @existing_question)
-      @existing__incorrect_option = Option.create(content: 'Tolouse', correct: false, question: @existing_question)
-      @existing_option_L3 = Option.create(content: 'Cordoba', correct: true, question: @existing_question_L3)
+      @existing_user = User.create(:username => 'test_user', :email => 'test@example.com', :password => 'password123')
+      @existing_topic = Topic.create(:name => 'Test Topic', :amount_questions_L1 => 3, :amount_questions_L2 => 3, :amount_questions_L3 => 3)
+      @existing_question = Question.create(:content => '¿Cuál es la capital de Francia?', :topic => @existing_topic, :level => 1)
+      @existing_question_level3 = Question.create(:content => '¿Cuál es la capital de Cordoba?', :topic => @existing_topic, :level => 3)
+      @existing_option = Option.create(:content => 'París', :correct => true, :question => @existing_question)
+      @existing__incorrect_option = Option.create(:content => 'Tolouse', :correct => false, :question => @existing_question)
+      @existing_option_level3 = Option.create(:content => 'Cordoba', :correct => true, :question => @existing_question_level3)
     end
 
     after(:all) do
       @existing_user.destroy
       @existing_option.destroy
       @existing__incorrect_option.destroy
-      @existing_option_L3.destroy
+      @existing_option_level3.destroy
       @existing_question.destroy
-      @existing_question_L3.destroy
+      @existing_question_level3.destroy
       @existing_topic.destroy
     end
 
@@ -187,11 +185,11 @@ RSpec.describe 'Sinatra App' do
       topic = @existing_topic
       question = @existing_question
       option = @existing_option
-      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+      knowledge = Knowledge.create(:user => user, :topic => topic, :correct_answers_count => 0, :level => 1)
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
-      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+      post '/answers', { :question_id => question.id, :option_id => option.id, :time => 10 }, 'rack.session' => session
 
       expect(last_response.redirect?).to be true
 
@@ -204,11 +202,11 @@ RSpec.describe 'Sinatra App' do
       topic = @existing_topic
       question = @existing_question
       option = @existing_option
-      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 1)
+      knowledge = Knowledge.create(:user => user, :topic => topic, :correct_answers_count => 2, :level => 1)
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
-      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+      post '/answers', { :question_id => question.id, :option_id => option.id, :time => 10 }, 'rack.session' => session
 
       expect(last_response.redirect?).to be true
 
@@ -219,14 +217,14 @@ RSpec.describe 'Sinatra App' do
     it 'se responde una pregunta bien y se completa el tema' do
       user = @existing_user
       topic = @existing_topic
-      question = @existing_question_L3
-      option = @existing_option_L3
+      question = @existing_question_level3
+      option = @existing_option_level3
 
-      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 2, level: 3)
+      knowledge = Knowledge.create(:user => user, :topic => topic, :correct_answers_count => 2, :level => 3)
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
-      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+      post '/answers', { :question_id => question.id, :option_id => option.id, :time => 10 }, 'rack.session' => session
 
       expect(last_response.redirect?).to be true
 
@@ -239,11 +237,11 @@ RSpec.describe 'Sinatra App' do
       topic = @existing_topic
       question = @existing_question
       option = @existing__incorrect_option
-      knowledge = Knowledge.create(user: user, topic: topic, correct_answers_count: 0, level: 1)
+      knowledge = Knowledge.create(:user => user, :topic => topic, :correct_answers_count => 0, :level => 1)
 
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
-      post '/answers', { question_id: question.id, option_id: option.id, time: 10 }, 'rack.session' => session
+      post '/answers', { :question_id => question.id, :option_id => option.id, :time => 10 }, 'rack.session' => session
 
       expect(last_response.redirect?).to be true
 
@@ -254,7 +252,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'POST /login' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user', :email => 'test@example.com', :password => 'password123')
     end
 
     after(:all) do
@@ -262,9 +260,7 @@ RSpec.describe 'Sinatra App' do
     end
 
     it 'debería autenticar al usuario y redirigirlo al inicio si las credenciales son válidas' do
-      user = @existing_user
-
-      post '/login', { username: 'test_user', email: 'test@example.com', password: 'password123' }
+      post '/login', { :username => 'test_user', :email => 'test@example.com', :password => 'password123' }
 
       expect(last_response).to be_redirect
       follow_redirect!
@@ -275,7 +271,7 @@ RSpec.describe 'Sinatra App' do
       user = @existing_user
       wrong_password = user.password + 'jfidsoajdisa'
 
-      post '/login', { username: user.username, email: user.email, password: wrong_password }
+      post '/login', { :username => user.username, :email => user.email, :password => wrong_password }
 
       expect(last_response).to be_ok
       expect(last_response.body).to include('Usuario o contraseña incorrecta')
@@ -284,7 +280,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'POST /register' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user', email: 'test@example.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user', :email => 'test@example.com', :password => 'password123')
     end
 
     after(:all) do
@@ -292,9 +288,7 @@ RSpec.describe 'Sinatra App' do
     end
 
     it 'debería registrar un nuevo usuario y redirigirlo a la página de inicio de sesión' do
-
-      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'password123' }
-
+      post '/register', { :username => 'nuevo_usuario', :email => 'nuevo@example.com', :password => 'password123', :confirm_password => 'password123' }
 
       expect(last_response).to be_redirect
       follow_redirect!
@@ -302,7 +296,7 @@ RSpec.describe 'Sinatra App' do
       expect(last_response.body).to include('¡Te has registrado con éxito! ¡Inicia sesión para comenzar a jugar!')
 
       # Se chequea que el nuevo usuario exista en la base de datos y luego se elimina
-      new_user = User.find_by(username: 'nuevo_usuario')
+      new_user = User.find_by(:username => 'nuevo_usuario')
       expect(new_user).not_to be_nil
 
       new_user.destroy
@@ -311,7 +305,7 @@ RSpec.describe 'Sinatra App' do
     it 'debería mostrar un mensaje de error si el nombre de usuario ya está tomado' do
       user = @existing_user
 
-      post '/register', { username: user.username, email: 'nuevoemail@example.com', password: 'password123', confirm_password: 'password123' }
+      post '/register', { :username => user.username, :email => 'nuevoemail@example.com', :password => 'password123', :confirm_password => 'password123' }
 
       expect(last_response.body).to include('El nombre de usuario ya está registrado')
     end
@@ -319,14 +313,13 @@ RSpec.describe 'Sinatra App' do
     it 'debería mostrar un mensaje de error si el email usuario ya está tomado' do
       user = @existing_user
 
-      post '/register', { username: 'nuevo_usuario', email: user.email, password: 'password123', confirm_password: 'password123' }
+      post '/register', { :username => 'nuevo_usuario', :email => user.email, :password => 'password123', :confirm_password => 'password123' }
 
       expect(last_response.body).to include('La dirección de email ya está registrada con otro usuario')
     end
 
     it 'debería mostrar un mensaje de error si las contraseñas no coinciden' do
-
-      post '/register', { username: 'nuevo_usuario', email: 'nuevo@example.com', password: 'password123', confirm_password: 'otraPassword' }
+      post '/register', { :username => 'nuevo_usuario', :email => 'nuevo@example.com', :password => 'password123', :confirm_password => 'otraPassword' }
 
       expect(last_response.body).to include('Las contraseñas no coinciden o estan vacias')
     end
@@ -334,7 +327,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'GET /answers/:date' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user10', :email => 'testttttt@example.com', :password => 'password123')
     end
 
     after(:all) do
@@ -343,9 +336,9 @@ RSpec.describe 'Sinatra App' do
 
     it 'returns a 200 OK status' do
       user = @existing_user
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
-      date = Date.today.strftime('%Y-%m-%d') 
+      date = Date.today.strftime('%Y-%m-%d')
 
       get "/answers/#{date}", {}, 'rack.session' => session
 
@@ -355,7 +348,7 @@ RSpec.describe 'Sinatra App' do
 
   context 'GET /history/:time_frame' do
     before(:all) do
-      @existing_user = User.create(username: 'test_user10', email: 'testttttt@example.com', password: 'password123')
+      @existing_user = User.create(:username => 'test_user10', :email => 'testttttt@example.com', :password => 'password123')
     end
 
     after(:all) do
@@ -364,7 +357,7 @@ RSpec.describe 'Sinatra App' do
 
     it 'returns a 200 OK status with a period of a week' do
       user = @existing_user
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
       get '/history/week', {}, 'rack.session' => session
 
@@ -373,7 +366,7 @@ RSpec.describe 'Sinatra App' do
 
     it 'returns a 200 OK status with a period of a month' do
       user = @existing_user
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
       get '/history/month', {}, 'rack.session' => session
 
@@ -382,7 +375,7 @@ RSpec.describe 'Sinatra App' do
 
     it 'returns a 200 OK status with a period of 3 months' do
       user = @existing_user
-      session = { user_id: user.id }
+      session = { :user_id => user.id }
 
       get '/history/3month', {}, 'rack.session' => session
 
