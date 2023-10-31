@@ -1,6 +1,6 @@
 require_relative '../models/user'
 
-class UserController < Sinatra::Application
+class AccessController < Sinatra::Application
 
   get '/login' do
     erb :index

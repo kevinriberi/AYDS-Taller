@@ -20,10 +20,9 @@ class App < Sinatra::Application
 
   use Rack::Flash
  
-  use HistoryController
+  use StatisticsController
   use QuestionController
-  use RankingController
-  use UserController
+  use AccessController
 
   configure :production, :development do
     enable :logging

@@ -1,4 +1,3 @@
-require_relative 'history_controller'
+require_relative 'access_controller'
+require_relative 'statistics_controller'
 require_relative 'question_controller'
-require_relative 'ranking_controller'
-require_relative 'user_controller'
