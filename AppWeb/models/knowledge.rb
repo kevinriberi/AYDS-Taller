@@ -27,8 +27,7 @@ class Knowledge < ActiveRecord::Base
       if self.is_finished
         return 100
       end
-      level_up_threshold = topic.send("amount_questions_L#{level}".to_sym)
-      rate = self.correct_answers_count.to_f / level_up_threshold
+      rate = self.correct_answers_count.to_f / topic.send("amount_questions_L#{level}".to_sym)
       percentage = (rate * 100).round(1) # Redondear a 1 decimales
       return percentage
     end
