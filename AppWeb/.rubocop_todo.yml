@@ -21,7 +21,7 @@ Bundler/OrderedGems:
 Layout/AccessModifierIndentation:
   Exclude:
     - 'models/answer.rb'
-    - 'models/knowledge.rb'
+    # - 'models/knowledge.rb'
     - 'models/option.rb'
     - 'models/question.rb'
     - 'models/topic.rb'

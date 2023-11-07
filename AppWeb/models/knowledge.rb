@@ -41,8 +41,8 @@ class Knowledge < ActiveRecord::Base
       end
     end
 
-    private
-  
+    private :valid_user_id, :valid_topic_id
+
     def valid_user_id
       return if User.exists?(user_id)
   
