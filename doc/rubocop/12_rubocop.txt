@@ -1,4 +1,0 @@
-Inspecting 56 files
-........................................................
-
-56 files inspected, no offenses detected
